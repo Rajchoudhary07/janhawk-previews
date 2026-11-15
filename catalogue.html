@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design Catalogue & Client Intake | Jan Hawk Studio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#090B0E',
+            chambers: '#10141A',
+            cardbg: '#141922',
+            bronze: '#C9A96E',
+            bronzeLight: '#DFCA9B',
+            mutedGold: 'rgba(201, 169, 110, 0.15)',
+            borderMuted: 'rgba(255, 255, 255, 0.08)',
+            borderBronze: 'rgba(201, 169, 110, 0.35)',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            editorial: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bg-noise {
+      background-image: radial-gradient(rgba(201, 169, 110, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #090B0E; }
+    ::-webkit-scrollbar-thumb { background: #232933; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #C9A96E; }
+  </style>
+</head>
+<body class="bg-obsidian text-neutral-300 font-sans antialiased selection:bg-bronze selection:text-obsidian bg-noise">
+
+  <!-- Top Banner -->
+  <aside class="w-full bg-[#050709] py-2 px-6 border-b border-white/5 text-[11px] font-mono tracking-wider text-neutral-400 uppercase flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-bronze animate-pulse"></span>
+      <span>JAN HAWK STUDIO • OFFICIAL 2026 DESIGN CATALOGUE & CLIENT INTAKE</span>
+    </div>
+    <div class="hidden sm:flex items-center gap-4 text-neutral-400">
+      <span>15 AWWWARDS-CALIBER COLLECTIONS</span>
+      <span>•</span>
+      <span class="text-bronze">BCI RULE 36 STATUTORY READY</span>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-40 bg-obsidian/90 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 border border-bronze/50 flex items-center justify-center font-editorial text-lg text-bronze font-semibold">
+          JH
+        </div>
+        <div>
+          <span class="block font-serif tracking-wide text-neutral-100 text-sm font-semibold uppercase">JAN HAWK STUDIO</span>
+          <span class="block text-[10px] tracking-widest text-neutral-400 font-mono uppercase">Architectural Design Catalogue</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-neutral-400">
+        <a href="#overview" class="hover:text-bronze transition-colors">Overview</a>
+        <a href="#catalogue" class="hover:text-bronze transition-colors">15 Designs</a>
+        <a href="#intake" class="hover:text-bronze transition-colors">Client Intake</a>
+        <a href="#roadmap" class="hover:text-bronze transition-colors">Timeline</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="Jan_Hawk_Studio_Design_Catalogue.pdf" download class="px-4 py-2 bg-bronze text-obsidian text-xs font-mono uppercase tracking-widest font-bold hover:bg-bronzeLight transition-all flex items-center gap-2">
+          <span>↓</span> Download PDF
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 px-6 border-b border-white/10 bg-gradient-to-b from-chambers to-obsidian text-center">
+    <div class="max-w-4xl mx-auto">
+      <span class="inline-block px-3 py-1 bg-white/[0.03] border border-white/10 text-bronze text-[11px] font-mono tracking-widest uppercase mb-6">
+        Curated Digital Frameworks • Uttarakhand
+      </span>
+      <h1 class="font-serif text-4xl sm:text-6xl text-white font-normal leading-tight mb-6">
+        Bespoke Digital Portals for <span class="font-editorial italic font-semibold text-bronze">Counsel & Enterprise</span>.
+      </h1>
+      <p class="text-neutral-400 text-base max-w-2xl mx-auto leading-relaxed mb-10">
+        Explore 15 distinct, award-caliber design architectures. Each framework is meticulously engineered with clean code, lightning speeds, Bar Council statutory compliance, and private consultation portals.
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#catalogue" class="px-7 py-3.5 bg-bronze text-obsidian font-mono text-xs uppercase tracking-widest font-bold hover:bg-bronzeLight transition-colors">
+          Browse 15 Designs
+        </a>
+        <a href="#intake" class="px-7 py-3.5 border border-white/20 text-white font-mono text-xs uppercase tracking-widest hover:border-bronze hover:text-bronze transition-colors">
+          Submit Information Brief &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regulatory Compliance Notice Bar -->
+  <section id="overview" class="py-10 px-6 border-b border-white/10 bg-[#0C111A]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-bronze text-xs font-mono uppercase tracking-widest block font-bold">Bar Council of India Rule 36 Statutory Immunity</span>
+        <p class="text-neutral-300 text-xs leading-relaxed max-w-3xl">
+          Under Section IV, Rule 36 of Bar Council of India Rules, legal counsel are prohibited from advertising. However, providing essential directory information (contact coordinates, courts of enrollment, credentials, and practice areas) upon specific visitor request is 100% lawful. Every legal design in our catalogue includes the statutory compliance disclaimer by default.
+        </p>
+      </div>
+      <div class="shrink-0 px-4 py-2 border border-bronze/40 rounded bg-bronze/10 text-bronze text-xs font-mono uppercase tracking-wider">
+        ✓ 100% BCI Compliant
+      </div>
+    </div>
+  </section>
+
+  <!-- 15 Designs Grid -->
+  <section id="catalogue" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-2">01 / Curated Portfolio</span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-white">The 15 Design Collections</h2>
+        </div>
+        <p class="text-neutral-400 text-xs font-mono max-w-md uppercase tracking-wider">
+          Select any design below. We customize every detail—colors, typography, practice areas, and photos—to your exact specifications.
+        </p>
+      </div>
+
+      <!-- Grid of 15 Designs -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Design 01 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-bronze/10 border border-bronze/40 text-bronze text-[10px] font-mono font-bold rounded">DESIGN 01</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Appellate Heritage</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-bronze transition-colors">The Grand Chamber</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Classic British & Continental Law Chamber aesthetic. Burnished bronze foil accents, Playfair serif typography, and solemn institutional dignity.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Obsidian (#090B0E) & Bronze (#C9A96E)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Playfair Display + Cormorant</div>
+              <div><strong class="text-neutral-300">Best For:</strong> High Court Senior Advocates & Appellate Chambers</div>
+            </div>
+          </div>
+          <a href="advocate-ritu-gaur.html" class="w-full py-2.5 bg-white/5 hover:bg-bronze hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            View Live Prototype &rarr;
+          </a>
+        </div>
+
+        <!-- Design 02 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-blue-500/10 border border-blue-500/40 text-blue-400 text-[10px] font-mono font-bold rounded">DESIGN 02</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Modern Grid</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-blue-400 transition-colors">Swiss Minimalist Chamber</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Pure modernist grid inspired by Swiss international typography. Generous negative space, stark monochrome contrast, and electric blue markers.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> White (#FFFFFF), Black (#111111), Klein Blue (#0038FF)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Neue Haas Grotesk / Inter</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Commercial Arbitrators & Corporate M&A Counsel</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-white hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 03 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-amber-500/10 border border-amber-500/40 text-amber-400 text-[10px] font-mono font-bold rounded">DESIGN 03</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Dark Luxury</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-amber-400 transition-colors">The Obsidian Sovereign</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Cinematic dark mode with ambient noise textures, Champagne gold highlights, and full-bleed hero compositions.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Obsidian (#0D0F12) & Champagne Gold (#E6CA65)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Cinzel Decorative + Plus Jakarta Sans</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Criminal Trial Defense & High-Stakes Litigators</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-amber-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 04 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[10px] font-mono font-bold rounded">DESIGN 04</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Editorial Parchment</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-emerald-400 transition-colors">Oxford Jurisprudence</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Warm parchment background with British racing green and crimson wax seal accents. Academic gravitas and scholarly docket layouts.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Parchment (#F5F2EB) & Racing Green (#1B3B2B)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Libre Baskerville / Newsreader Serif</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Constitutional Writs, Intellectual Property & Jurists</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-emerald-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 05 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-teal-500/10 border border-teal-500/40 text-teal-400 text-[10px] font-mono font-bold rounded">DESIGN 05</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Nordic Warmth</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-teal-400 transition-colors">Nordic Clean & Clarity</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Calm, reassuring, approachable Scandinavian visual hierarchy. Warm light tones, rounded cards, and plain-English step-by-step guidance.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Off-White (#F8FAFC) & Slate Navy (#1E293B)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Outfit Clean Sans + Georgia Accent</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Family Law, Matrimonial, Mediation & Custody</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-teal-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 06 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-yellow-500/10 border border-yellow-500/40 text-yellow-400 text-[10px] font-mono font-bold rounded">DESIGN 06</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Brutalist Grid</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-yellow-400 transition-colors">Brutalist Legal Authority</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Unapologetic raw structure, oversized bold headers, 1px technical wireframes, and industrial amber warning markers.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Pitch Black (#000000) & Industrial Amber (#FFB800)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Space Grotesk Heavy + Space Mono</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Labor Tribunals, Industrial Disputes & Trial Litigators</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-yellow-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 07 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-indigo-500/10 border border-indigo-500/40 text-indigo-400 text-[10px] font-mono font-bold rounded">DESIGN 07</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Institutional Trust</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-indigo-400 transition-colors">The Royal Navy & Pearl</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Deep oceanic navy with platinum silver trim. Evokes high corporate trust, multi-partner boardrooms, and statutory security.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Deep Navy (#0A192F) & Brushed Platinum (#CBD5E1)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Prata Luxury Serif + Montserrat</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Banking & Insolvency (NCLT / IBC), Commercial Suits</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-indigo-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 08 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-orange-500/10 border border-orange-500/40 text-orange-400 text-[10px] font-mono font-bold rounded">DESIGN 08</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Earth & Stone</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-orange-400 transition-colors">Terra Cotta & Warm Stone</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Grounding terracotta and limestone beige palette with architectural masonry textures and property boundary checklists.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Warm Terracotta (#C86D51) & Limestone (#EFECE6)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> DM Serif Display + DM Sans</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Real Estate Law, Land Revenue (ZALR) & Partition Suits</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-orange-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 09 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-cyan-500/10 border border-cyan-500/40 text-cyan-400 text-[10px] font-mono font-bold rounded">DESIGN 09</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Cyber Precision</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-cyan-400 transition-colors">Cyber Legal & Tech Counsel</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Carbon fiber dark styling with electric cyan micro-interactions, IT Act statutory calculators, and emergency response portals.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Carbon (#0A0A0A) & Electric Cyan (#00F2FE)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Syne Modern + Geist Mono</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Cyber Crime, IT Act, Data Privacy & Fintech Counsel</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-cyan-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 10 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-rose-500/10 border border-rose-500/40 text-rose-400 text-[10px] font-mono font-bold rounded">DESIGN 10</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Artisan Linen</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-rose-400 transition-colors">Boutique Atelier Chambers</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Soft linen textures, rich espresso typography, and handwritten counsel signature accents for intimate private wealth advisory.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Linen Cream (#F9F8F6) & Espresso (#2D241E)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Italiana Luxury + Cormorant Italic</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Private Client Wealth, Wills, Trusts & Family Offices</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-rose-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 11 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-purple-500/10 border border-purple-500/40 text-purple-400 text-[10px] font-mono font-bold rounded">DESIGN 11</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Kinetic Scale</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-purple-400 transition-colors">The Monolith</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Full-bleed cinematic courtroom photo heroes, horizontal scrolling judgment timelines, and monumental scale.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Deep Void (#050505) & Chalk White (#F5F5F7)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Oswald Bold + Manrope Sans</div>
+              <div><strong class="text-neutral-300">Best For:</strong> High-Profile Senior Counsel & Multi-Partner Chambers</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-purple-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 12 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-yellow-600/10 border border-yellow-600/40 text-yellow-500 text-[10px] font-mono font-bold rounded">DESIGN 12</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Dual Dossier</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-yellow-500 transition-colors">The Constitutional Archivist</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Split-screen documentary layout. Left column anchors counsel credentials and seal; right column scrolls through active practice dockets.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Sepia Off-White (#F4EFEB) & Antique Brass (#B8860B)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> EB Garamond + Lato Sans</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Advocates with extensive reported judgments (AIR / SCC)</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-yellow-500 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 13 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-fuchsia-500/10 border border-fuchsia-500/40 text-fuchsia-400 text-[10px] font-mono font-bold rounded">DESIGN 13</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Frosted Glass</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-fuchsia-400 transition-colors">Zenith Glass & Frost</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Backdrop-blur glassmorphism cards, iridescent gradient boundaries, and ambient deep twilight aesthetic.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Twilight Indigo (#0E0C17) & Electric Violet (#7C3AED)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Sora Geometric + Inter</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Modern Commercial Chambers & Venture Capital Advisory</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-fuchsia-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 14 -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-red-500/10 border border-red-500/40 text-red-400 text-[10px] font-mono font-bold rounded">DESIGN 14</span>
+              <span class="text-[10px] font-mono text-neutral-500 uppercase">Broadsheet News</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-red-400 transition-colors">The High Court Columnist</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-4">
+              Crisp 3-column newspaper broadsheet grid. High-density informational hierarchy, black rules, and downloadable case dossiers.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-white/5">
+              <div><strong class="text-neutral-300">Palette:</strong> Newsprint (#FAF9F6) & Vermillion (#C53030)</div>
+              <div><strong class="text-neutral-300">Typography:</strong> Playfair Display + Source Serif Pro</div>
+              <div><strong class="text-neutral-300">Best For:</strong> Consumer Litigators & High-Volume Trial Advocates</div>
+            </div>
+          </div>
+          <a href="#intake" class="w-full py-2.5 bg-white/5 hover:bg-red-400 hover:text-obsidian border border-white/10 text-center text-xs font-mono uppercase tracking-widest transition-all">
+            Select This Style &rarr;
+          </a>
+        </div>
+
+        <!-- Design 15 -->
+        <div class="bg-cardbg border border-bronze rounded-xl p-6 transition-all duration-300 flex flex-col justify-between group shadow-xl shadow-bronze/10 ring-1 ring-bronze/30">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-1 bg-bronze text-obsidian text-[10px] font-mono font-bold rounded">DESIGN 15 (FLAGSHIP)</span>
+              <span class="text-[10px] font-mono text-bronze uppercase">Awwwards SOTD</span>
+            </div>
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-bronze transition-colors">Chambers Prime Flagship</h3>
+            <p class="text-neutral-300 text-xs font-light leading-relaxed mb-4">
+              Our flagship creation: dynamic court clocks, interactive intake modals, custom initials monogram, and live preview architecture.
+            </p>
+            <div class="space-y-1.5 text-[11px] font-mono text-neutral-400 mb-6 bg-obsidian p-3 rounded border border-bronze/30">
+              <div><strong class="text-bronze">Palette:</strong> Obsidian (#090B0E) & Burnished Gold (#C9A96E)</div>
+              <div><strong class="text-bronze">Typography:</strong> Playfair Display + Cormorant + Plus Jakarta</div>
+              <div><strong class="text-bronze">Best For:</strong> The all-in-one bespoke solution built for Uttarakhand</div>
+            </div>
+          </div>
+          <a href="advocate-ritu-gaur.html" class="w-full py-2.5 bg-bronze text-obsidian font-mono uppercase tracking-widest font-bold text-center text-xs hover:bg-bronzeLight transition-all">
+            Explore Flagship Demo &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Client Intake Questionnaire -->
+  <section id="intake" class="py-24 px-6 border-t border-white/10 bg-gradient-to-b from-obsidian via-chambers to-obsidian">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-2">02 / Project Kickoff</span>
+        <h2 class="font-serif text-3xl sm:text-5xl text-white mb-4">Client Information Intake Questionnaire</h2>
+        <p class="text-neutral-400 text-sm max-w-xl mx-auto leading-relaxed">
+          Please provide the basic details needed to construct your portal. You can fill out this form directly to copy your brief, or send it to us via email / WhatsApp.
+        </p>
+      </div>
+
+      <form id="intakeForm" onsubmit="generateBrief(event)" class="bg-cardbg border border-white/10 rounded-2xl p-8 sm:p-12 shadow-2xl space-y-8">
+        
+        <!-- Section 1 -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+            <span class="w-6 h-6 rounded-full bg-bronze text-obsidian flex items-center justify-center font-mono text-xs font-bold">1</span>
+            <h3 class="font-serif text-xl text-white">Chamber / Firm Identity</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Full Legal Name *</label>
+              <input id="f_name" type="text" required placeholder="e.g. Advocate Ritu Gaur" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Chamber / Firm Title *</label>
+              <input id="f_chambers" type="text" required placeholder="e.g. Chambers of Advocate Ritu Gaur" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Monogram / Initials</label>
+              <input id="f_monogram" type="text" placeholder="e.g. ARG or Scales of Justice" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Years of Practice / Enrollment</label>
+              <input id="f_experience" type="text" placeholder="e.g. Enrolled 2010 / 15+ Years Experience" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+            <span class="w-6 h-6 rounded-full bg-bronze text-obsidian flex items-center justify-center font-mono text-xs font-bold">2</span>
+            <h3 class="font-serif text-xl text-white">Courts of Regular Appearance</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Trial Courts *</label>
+              <input id="f_trial_courts" type="text" required placeholder="e.g. District & Sessions Court, Haridwar" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">High Court / Appellate Forum</label>
+              <input id="f_high_court" type="text" placeholder="e.g. High Court of Uttarakhand at Nainital" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+            <span class="w-6 h-6 rounded-full bg-bronze text-obsidian flex items-center justify-center font-mono text-xs font-bold">3</span>
+            <h3 class="font-serif text-xl text-white">Core Practice Disciplines (Top 4 to 6)</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Practice Area 1</label>
+              <input id="f_p1" type="text" placeholder="e.g. Civil Property & Land Title Disputes" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Practice Area 2</label>
+              <input id="f_p2" type="text" placeholder="e.g. Criminal Trial Defense & Regular/Anticipatory Bail" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Practice Area 3</label>
+              <input id="f_p3" type="text" placeholder="e.g. Matrimonial Disputes, Divorce & Custody" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Practice Area 4</label>
+              <input id="f_p4" type="text" placeholder="e.g. High Court Writ Petitions (Articles 226/227)" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+            <span class="w-6 h-6 rounded-full bg-bronze text-obsidian flex items-center justify-center font-mono text-xs font-bold">4</span>
+            <h3 class="font-serif text-xl text-white">Chamber Address & Contact Coordinates</h3>
+          </div>
+          <div>
+            <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Chamber Office Address *</label>
+            <input id="f_address" type="text" required placeholder="e.g. Chamber No. XX, District Court Complex, Haridwar" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Mobile / Phone *</label>
+              <input id="f_phone" type="tel" required placeholder="+91 98XXX XXXXX" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">WhatsApp Number</label>
+              <input id="f_whatsapp" type="tel" placeholder="+91 98XXX XXXXX" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Official Email *</label>
+              <input id="f_email" type="email" required placeholder="ritu.gaur200@gmail.com" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+            <span class="w-6 h-6 rounded-full bg-bronze text-obsidian flex items-center justify-center font-mono text-xs font-bold">5</span>
+            <h3 class="font-serif text-xl text-white">Design & Domain Preferences</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Selected Design Collection</label>
+              <select id="f_design" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+                <option>Design 15 (Chambers Prime - Flagship)</option>
+                <option>Design 01 (The Grand Chamber)</option>
+                <option>Design 02 (Swiss Minimalist)</option>
+                <option>Design 03 (The Obsidian Sovereign)</option>
+                <option>Design 04 (Oxford Jurisprudence)</option>
+                <option>Design 05 (Nordic Clean & Clarity)</option>
+                <option>Design 07 (The Royal Navy & Pearl)</option>
+                <option>Design 08 (Terra Cotta & Warm Stone)</option>
+                <option>Other / Custom Mix</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-mono text-[11px] text-neutral-400 uppercase mb-1">Preferred Domain Name (.in / .com)</label>
+              <input id="f_domain" type="text" placeholder="e.g. advocateritugaur.in" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-4 bg-bronze text-obsidian font-mono text-xs uppercase tracking-widest font-bold hover:bg-bronzeLight transition-colors shadow-xl shadow-bronze/10">
+          Generate Completed Brief &rarr;
+        </button>
+
+      </form>
+
+      <!-- Output Modal / Box -->
+      <div id="briefResult" class="hidden mt-8 bg-chambers border border-bronze/40 rounded-xl p-8 space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs text-bronze uppercase tracking-widest font-bold">✓ Your Completed Brief Is Ready</span>
+          <button onclick="copyBrief()" class="px-3 py-1 bg-bronze/10 border border-bronze/40 text-bronze text-xs font-mono uppercase hover:bg-bronze hover:text-obsidian rounded transition-colors">
+            Copy Text
+          </button>
+        </div>
+        <textarea id="briefText" rows="10" readonly class="w-full bg-obsidian border border-white/10 p-4 text-xs font-mono text-neutral-300 rounded focus:outline-none"></textarea>
+        <p class="text-neutral-400 text-xs">
+          Simply paste this text in your email reply to <strong class="text-neutral-200">janhawk1020@gmail.com</strong> or send it via WhatsApp. We will configure your domain and staging site within 24 hours.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Delivery Roadmap -->
+  <section id="roadmap" class="py-20 px-6 border-t border-white/10 bg-[#050709]">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-2">03 / Execution Guarantee</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-white">48-Hour Turnkey Deployment</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-cardbg border border-white/10 rounded-xl">
+          <span class="font-mono text-xs text-bronze block mb-2 font-bold">DAY 1</span>
+          <h4 class="font-serif text-lg text-white mb-2">Domain & Design Lock</h4>
+          <p class="text-neutral-400 text-xs leading-relaxed">
+            Receipt of intake brief and 50% advance deposit. Custom domain (.in / .com) officially secured in counsel's name.
+          </p>
+        </div>
+        <div class="p-6 bg-cardbg border border-white/10 rounded-xl">
+          <span class="font-mono text-xs text-bronze block mb-2 font-bold">DAY 2</span>
+          <h4 class="font-serif text-lg text-white mb-2">Architecture & Staging</h4>
+          <p class="text-neutral-400 text-xs leading-relaxed">
+            Full responsive code assembled, BCI Rule 36 compliance verified, intake forms configured, and private staging preview shared.
+          </p>
+        </div>
+        <div class="p-6 bg-cardbg border border-white/10 rounded-xl">
+          <span class="font-mono text-xs text-bronze block mb-2 font-bold">DAY 3</span>
+          <h4 class="font-serif text-lg text-white mb-2">Go-Live & Handover</h4>
+          <p class="text-neutral-400 text-xs leading-relaxed">
+            Any client wording tweaks completed. Domain DNS connected to high-speed SSL cloud hosting. 100% turnkey delivery.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-12 px-6 bg-[#020305] text-xs font-mono text-neutral-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div>
+        <span class="text-neutral-200 font-serif font-bold text-sm block">JAN HAWK STUDIO</span>
+        <p class="text-[11px] text-neutral-400">Corporate & Legal Web Architecture • Dehradun & Uttarakhand</p>
+        <p class="text-[11px] text-bronze mt-1">Registry: janhawk1020@gmail.com</p>
+      </div>
+      <div class="text-right text-[11px] text-neutral-500">
+        &copy; 2026 Jan Hawk Studio. All Rights Reserved.<br>
+        Awwwards Standard Bespoke Web Engineering.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function generateBrief(e) {
+      e.preventDefault();
+      const name = document.getElementById('f_name').value;
+      const chambers = document.getElementById('f_chambers').value;
+      const monogram = document.getElementById('f_monogram').value;
+      const exp = document.getElementById('f_experience').value;
+      const trial = document.getElementById('f_trial_courts').value;
+      const high = document.getElementById('f_high_court').value;
+      const p1 = document.getElementById('f_p1').value;
+      const p2 = document.getElementById('f_p2').value;
+      const p3 = document.getElementById('f_p3').value;
+      const p4 = document.getElementById('f_p4').value;
+      const addr = document.getElementById('f_address').value;
+      const phone = document.getElementById('f_phone').value;
+      const wa = document.getElementById('f_whatsapp').value;
+      const email = document.getElementById('f_email').value;
+      const design = document.getElementById('f_design').value;
+      const domain = document.getElementById('f_domain').value;
+
+      const brief = `=== JAN HAWK STUDIO CLIENT INTAKE BRIEF ===
+1. CHAMBER IDENTITY:
+- Counsel Name: ${name}
+- Chamber / Firm Name: ${chambers}
+- Monogram: ${monogram || 'N/A'}
+- Experience / Enrollment: ${exp || 'N/A'}
+
+2. COURTS & JURISDICTION:
+- Primary Trial Courts: ${trial}
+- High Court / Appellate: ${high || 'High Court of Uttarakhand'}
+
+3. PRACTICE DISCIPLINES:
+- Area 1: ${p1 || 'Civil Property & Land Disputes'}
+- Area 2: ${p2 || 'Criminal Defense & Bail Advocacy'}
+- Area 3: ${p3 || 'Matrimonial & Family Disputes'}
+- Area 4: ${p4 || 'High Court Writs (Article 226)'}
+
+4. CHAMBER LOCATION & CONTACT:
+- Office Address: ${addr}
+- Mobile / Consultation Phone: ${phone}
+- WhatsApp Number: ${wa || phone}
+- Official Registry Email: ${email}
+
+5. DESIGN PREFERENCES:
+- Chosen Design Collection: ${design}
+- Preferred Domain: ${domain || 'advocateritugaur.in'}`;
+
+      document.getElementById('briefText').value = brief;
+      document.getElementById('briefResult').classList.remove('hidden');
+      document.getElementById('briefResult').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function copyBrief() {
+      const copyText = document.getElementById('briefText');
+      copyText.select();
+      navigator.clipboard.writeText(copyText.value);
+      alert('Brief copied to clipboard! You can now paste and send it to janhawk1020@gmail.com');
+    }
+  </script>
+</body>
+</html>
