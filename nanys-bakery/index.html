@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nany's Bakery & Cafe | Artisanal Patisserie & Coffee | Dehradun</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            oatCream: '#FAF7F2',
+            warmWhite: '#FFFFFF',
+            espresso: '#1A1412',
+            mocha: '#2E221E',
+            cinnamon: '#B45309',
+            warmGold: '#D97706',
+            cardSepia: '#F3ECE3',
+            borderSepia: 'rgba(46, 34, 30, 0.1)',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            editorial: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bg-paper {
+      background-image: radial-gradient(rgba(180, 83, 9, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    
+    /* Scroll Reveal Animation Styles */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* Image zoom hover effect */
+    .img-zoom-container {
+      overflow: hidden;
+    }
+    .img-zoom {
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .img-zoom-container:hover .img-zoom {
+      transform: scale(1.05);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF7F2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D8CCC4;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B45309;
+    }
+  </style>
+</head>
+<body class="bg-oatCream text-espresso font-sans antialiased selection:bg-cinnamon selection:text-white bg-paper">
+
+  <!-- Cafe Status Bar -->
+  <aside aria-label="Cafe Hours and Location" class="w-full bg-espresso text-amber-200/80 py-2 px-6 text-[11px] font-mono tracking-wider uppercase flex justify-between items-center border-b border-amber-900/30">
+    <div class="flex items-center gap-3">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+      <span>OLD SURVEY ROAD, OPP. CROSSROADS MALL, DEHRADUN • FRESH ARTISANAL BAKES DAILY</span>
+    </div>
+    <div class="hidden sm:flex items-center gap-4 text-amber-200/60">
+      <span>OPEN DAILY: 9:00 AM – 10:30 PM</span>
+      <span>•</span>
+      <span class="text-amber-400 font-semibold">DIRECT PICKUPS: +91 98970 XXXXX</span>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-40 bg-oatCream/90 backdrop-blur-md border-b border-borderSepia transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Brand -->
+      <a href="#" class="group flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-mocha flex items-center justify-center font-editorial italic font-bold text-amber-200 text-lg group-hover:scale-105 transition-transform">
+          N
+        </div>
+        <div>
+          <span class="block font-display tracking-tight text-espresso text-base font-bold uppercase group-hover:text-cinnamon transition-colors">NANY'S BAKERY</span>
+          <span class="block text-[10px] tracking-widest text-stone-500 font-mono uppercase">Artisanal Patisserie & Cafe</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono tracking-wider uppercase text-stone-600">
+        <a href="#story" class="hover:text-cinnamon transition-colors">01. Our Story</a>
+        <a href="#menu" class="hover:text-cinnamon transition-colors">02. The Bakehouse Menu</a>
+        <a href="#custom-cakes" class="hover:text-cinnamon transition-colors">03. Custom Cakes</a>
+        <a href="#visit" class="hover:text-cinnamon transition-colors">04. Visit Us</a>
+      </nav>
+
+      <!-- Action -->
+      <div class="hidden sm:flex items-center gap-4">
+        <button onclick="openModal()" class="px-5 py-2.5 bg-mocha text-amber-100 text-xs font-mono uppercase tracking-wider font-semibold rounded-full hover:bg-espresso transition-all shadow-sm">
+          Reserve Table / Order Cake
+        </button>
+      </div>
+
+      <!-- Mobile Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-espresso">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-6 py-6 space-y-4 text-xs font-mono uppercase tracking-wider">
+      <a href="#story" onclick="toggleMobileMenu()" class="block text-stone-700 hover:text-cinnamon">01. Our Story</a>
+      <a href="#menu" onclick="toggleMobileMenu()" class="block text-stone-700 hover:text-cinnamon">02. The Bakehouse Menu</a>
+      <a href="#custom-cakes" onclick="toggleMobileMenu()" class="block text-stone-700 hover:text-cinnamon">03. Custom Cakes</a>
+      <a href="#visit" onclick="toggleMobileMenu()" class="block text-stone-700 hover:text-cinnamon">04. Visit Us</a>
+      <button onclick="openModal(); toggleMobileMenu();" class="w-full mt-4 py-3 bg-mocha text-amber-100 text-center font-bold rounded-full">
+        Reserve Table / Order Cake
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section with High-Res Croissant & Bread Banner -->
+  <section class="relative min-h-[85vh] flex items-center justify-center px-6 py-20 overflow-hidden">
+    <div class="max-w-5xl mx-auto w-full text-center">
+      
+      <div class="reveal inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cardSepia border border-amber-900/10 text-cinnamon text-xs font-mono tracking-wider uppercase mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-cinnamon"></span>
+        Artisan Sourdough • French Patisserie • Specialty Coffee
+      </div>
+
+      <h1 class="reveal font-display text-4xl sm:text-6xl md:text-7xl font-bold text-espresso leading-[1.08] tracking-tight mb-8">
+        Baked with Soul.<br>
+        <span class="font-editorial italic font-normal text-cinnamon">Brewed for Conversations.</span>
+      </h1>
+
+      <p class="reveal max-w-2xl mx-auto text-stone-600 text-base md:text-lg font-light leading-relaxed mb-12">
+        From golden flaky butter croissants and slow-fermented artisan sourdough to rich Belgian chocolate tortes. Discover Dehradun's coziest patisserie corner right opposite Crossroads Mall.
+      </p>
+
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 bg-mocha text-amber-100 font-mono text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-espresso shadow-md transition-all">
+          Order Celebration Cake &rarr;
+        </button>
+        <a href="#menu" class="w-full sm:w-auto px-8 py-4 border border-stone-300 bg-white text-stone-800 font-mono text-xs uppercase tracking-widest rounded-full hover:border-cinnamon hover:text-cinnamon transition-colors">
+          View Daily Bakes Menu
+        </a>
+      </div>
+
+      <!-- Trust Pillars Grid -->
+      <div class="reveal mt-20 pt-10 border-t border-borderSepia grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+        <div class="p-4 bg-white/70 border border-stone-200/60 rounded-xl">
+          <span class="block font-mono text-xs text-stone-400 uppercase tracking-wider mb-1">Butter Standard</span>
+          <span class="font-display font-semibold text-espresso text-base">Pure Dairy Butter</span>
+          <span class="block text-[11px] text-stone-500 font-light mt-0.5">Zero vegetable margarine</span>
+        </div>
+        <div class="p-4 bg-white/70 border border-stone-200/60 rounded-xl">
+          <span class="block font-mono text-xs text-stone-400 uppercase tracking-wider mb-1">Bread Craft</span>
+          <span class="font-display font-semibold text-espresso text-base">36-Hour Sourdough</span>
+          <span class="block text-[11px] text-stone-500 font-light mt-0.5">Naturally fermented daily</span>
+        </div>
+        <div class="p-4 bg-white/70 border border-stone-200/60 rounded-xl">
+          <span class="block font-mono text-xs text-stone-400 uppercase tracking-wider mb-1">Coffee Roast</span>
+          <span class="font-display font-semibold text-espresso text-base">Chikmagalur Arabica</span>
+          <span class="block text-[11px] text-stone-500 font-light mt-0.5">Freshly pulled espresso</span>
+        </div>
+        <div class="p-4 bg-white/70 border border-stone-200/60 rounded-xl">
+          <span class="block font-mono text-xs text-stone-400 uppercase tracking-wider mb-1">Location</span>
+          <span class="font-display font-semibold text-espresso text-base">Old Survey Road</span>
+          <span class="block text-[11px] text-stone-500 font-light mt-0.5">Karanpur, Dehradun</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Story Section with High-Res Sourdough Image -->
+  <section id="story" class="py-24 px-6 border-t border-borderSepia bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-5 space-y-6 reveal">
+        <span class="font-mono text-xs text-cinnamon uppercase tracking-widest font-semibold">01 / The Oven Ritual</span>
+        <h2 class="font-display text-3xl sm:text-4xl text-espresso font-bold leading-tight">
+          Good baking cannot be hurried. Time is our most essential ingredient.
+        </h2>
+        <div class="w-12 h-[2px] bg-cinnamon"></div>
+        <p class="text-stone-600 font-light text-sm leading-relaxed">
+          At Nany's Bakery, every loaf of sourdough is shaped by hand and naturally fermented for over 36 hours. Our laminations use 100% pure unsalted dairy butter to achieve that signature honeycomb interior and fragile, shattering crust.
+        </p>
+        <p class="text-stone-600 font-light text-sm leading-relaxed">
+          Whether you stop by for a morning espresso and fresh croissant or order a bespoke tiered cake for a mountain wedding, you taste the dedication of artisanal European baking right in Dehradun.
+        </p>
+      </div>
+
+      <!-- High-Res Photo Card -->
+      <div class="lg:col-span-7 reveal reveal-delay-2">
+        <div class="relative rounded-2xl overflow-hidden border border-borderSepia shadow-xl img-zoom-container bg-oatCream">
+          <img 
+            src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80" 
+            alt="Handcrafted Artisan Bread" 
+            class="w-full h-[400px] object-cover img-zoom"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-md border border-stone-200 rounded-xl">
+            <span class="font-mono text-[10px] text-cinnamon font-bold uppercase tracking-wider block">Bakehouse Standard</span>
+            <span class="font-display font-bold text-espresso text-base">Hand-Shaped Artisan Loaves Every Morning</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Curated Menu Grid with High-Res Photos -->
+  <section id="menu" class="py-24 px-6 border-t border-borderSepia">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+        <div>
+          <span class="font-mono text-xs text-cinnamon uppercase tracking-widest font-semibold block mb-2">02 / The Daily Showcase</span>
+          <h2 class="font-display text-3xl sm:text-5xl text-espresso font-bold">Patisserie & Bistro Selections</h2>
+        </div>
+        <p class="text-stone-500 text-xs font-mono max-w-md uppercase tracking-wider">
+          Fresh batches pulled from our stone deck ovens every morning at 8:30 AM.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Category 1 with image -->
+        <div class="bg-white border border-borderSepia rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 reveal reveal-delay-1 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Fresh Butter Croissants" class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-xs font-mono text-cinnamon font-bold rounded shadow-sm">
+              VIENNOISERIE
+            </div>
+          </div>
+          <div class="p-6 space-y-4">
+            <h3 class="font-display text-2xl font-bold text-espresso">Croissants & Pastries</h3>
+            <ul class="space-y-3 text-xs">
+              <li class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-2">
+                <span class="font-medium text-stone-800">Classic French Butter Croissant</span>
+                <span class="font-mono font-bold text-cinnamon">₹140</span>
+              </li>
+              <li class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-2">
+                <span class="font-medium text-stone-800">Almond Frangipane Twice-Baked Croissant</span>
+                <span class="font-mono font-bold text-cinnamon">₹190</span>
+              </li>
+              <li class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-2">
+                <span class="font-medium text-stone-800">Pain au Chocolat (Dark Belgian Batons)</span>
+                <span class="font-mono font-bold text-cinnamon">₹170</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Category 2 with image -->
+        <div class="bg-white border border-borderSepia rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 reveal reveal-delay-2 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Signature Cakes and Tarts" class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-xs font-mono text-cinnamon font-bold rounded shadow-sm">
+              DESSERT ARTISTRY
+            </div>
+          </div>
+          <div class="p-6 space-y-4">
+            <h3 class="font-display text-2xl font-bold text-espresso">Signature Cakes & Tarts</h3>
+            <ul class="space-y-3 text-xs">
+              <li class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-2">
+                <span class="font-medium text-stone-800">70% Callebaut Dark Truffle Torte</span>
+                <span class="font-mono font-bold text-cinnamon">₹240</span>
+              </li>
+              <li class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-2">
+                <span class="font-medium text-stone-800">San Sebastián Burnt Cheesecake</span>
+                <span class="font-mono font-bold text-cinnamon">₹260</span>
+              </li>
+              <li class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-2">
+                <span class="font-medium text-stone-800">Lemon Curd Tartlet with Meringue</span>
+                <span class="font-mono font-bold text-cinnamon">₹210</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Category 3 with image -->
+        <div class="bg-white border border-borderSepia rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 reveal reveal-delay-3 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" alt="Artisanal Coffee" class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-xs font-mono text-cinnamon font-bold rounded shadow-sm">
+              ROASTERY & SIPS
+            </div>
+          </div>
+          <div class="p-6 space-y-4">
+            <h3 class="font-display text-2xl font-bold text-espresso">Artisanal Coffee & Teas</h3>
+            <ul class="space-y-3 text-xs">
+              <li class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-2">
+                <span class="font-medium text-stone-800">Double Shot Flat White (Whole / Oat)</span>
+                <span class="font-mono font-bold text-cinnamon">₹160</span>
+              </li>
+              <li class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-2">
+                <span class="font-medium text-stone-800">Iced Sea Salt Caramel Latte</span>
+                <span class="font-mono font-bold text-cinnamon">₹210</span>
+              </li>
+              <li class="flex justify-between items-baseline border-b border-dashed border-stone-200 pb-2">
+                <span class="font-medium text-stone-800">Slow Cold Brew (18-Hour Steep)</span>
+                <span class="font-mono font-bold text-cinnamon">₹180</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Custom Celebration Cakes Banner -->
+  <section id="custom-cakes" class="py-20 px-6 border-t border-borderSepia bg-mocha text-amber-100">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 reveal">
+      <div class="space-y-4 max-w-xl">
+        <span class="font-mono text-xs text-amber-300 font-bold uppercase tracking-widest">Bespoke Celebrations</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white leading-tight">
+          Custom Celebration & Wedding Cakes
+        </h2>
+        <p class="text-amber-200/80 text-sm font-light leading-relaxed">
+          Celebrate your birthdays, anniversaries, and milestones in Dehradun with handcrafted, tiered cakes designed to your flavor and theme palette.
+        </p>
+      </div>
+      <div>
+        <button onclick="openModal()" class="px-8 py-4 bg-cinnamon text-white font-mono text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-amber-600 transition-colors shadow-lg">
+          Custom Cake Inquiry &rarr;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Section -->
+  <section id="visit" class="py-20 px-6 border-t border-borderSepia bg-oatCream">
+    <div class="max-w-4xl mx-auto text-center reveal">
+      <span class="font-mono text-xs text-cinnamon uppercase tracking-widest font-semibold block mb-3">Visit the Cafe</span>
+      <h2 class="font-display text-4xl sm:text-5xl text-espresso font-bold mb-6">Drop By for Warm Bakes & Coffee</h2>
+      <p class="text-stone-600 text-sm font-light max-w-xl mx-auto mb-10 leading-relaxed">
+        Located conveniently on Old Survey Road, opposite Crossroads Mall in Karanpur, Dehradun.
+      </p>
+
+      <div class="p-8 border border-borderSepia bg-white rounded-2xl grid grid-cols-1 md:grid-cols-3 gap-6 text-left shadow-lg">
+        <div>
+          <span class="font-mono text-xs text-stone-400 uppercase tracking-wider block mb-1">Cafe Address</span>
+          <p class="font-semibold text-stone-800 text-sm">Opposite Crossroads Mall, Old Survey Rd</p>
+          <p class="text-stone-500 text-xs">Karanpur, Dehradun - 248001</p>
+        </div>
+
+        <div>
+          <span class="font-mono text-xs text-stone-400 uppercase tracking-wider block mb-1">Bakehouse Hours</span>
+          <p class="font-semibold text-stone-800 text-sm">Open 7 Days a Week</p>
+          <p class="text-stone-500 text-xs">9:00 AM – 10:30 PM</p>
+        </div>
+
+        <div class="flex flex-col justify-center">
+          <button onclick="openModal()" class="w-full py-3 bg-mocha text-amber-100 font-mono text-xs uppercase tracking-wider font-semibold rounded-xl hover:bg-espresso transition-colors">
+            Reserve Table / Order
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white border border-stone-200 max-w-md w-full p-8 rounded-2xl relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-700 font-mono text-sm">
+        ✕
+      </button>
+
+      <div class="mb-6">
+        <span class="font-mono text-[10px] text-cinnamon font-bold uppercase tracking-widest block">Nany's Bakehouse</span>
+        <h3 class="font-display text-2xl font-bold text-espresso">Reserve or Place Inquiry</h3>
+      </div>
+
+      <form id="cafeForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block font-mono text-[10px] text-stone-500 uppercase tracking-wider mb-1">Your Name</label>
+          <input type="text" required placeholder="e.g. Meera Rawat" class="w-full bg-stone-50 border border-stone-200 px-4 py-2.5 text-xs text-stone-800 rounded-lg focus:outline-none focus:border-cinnamon">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block font-mono text-[10px] text-stone-500 uppercase tracking-wider mb-1">Phone Number</label>
+            <input type="tel" required placeholder="+91 98XXX XXXXX" class="w-full bg-stone-50 border border-stone-200 px-4 py-2.5 text-xs text-stone-800 rounded-lg focus:outline-none focus:border-cinnamon">
+          </div>
+          <div>
+            <label class="block font-mono text-[10px] text-stone-500 uppercase tracking-wider mb-1">Inquiry Type</label>
+            <select class="w-full bg-stone-50 border border-stone-200 px-3 py-2.5 text-xs text-stone-800 rounded-lg focus:outline-none focus:border-cinnamon">
+              <option>Custom Celebration Cake</option>
+              <option>Table Reservation</option>
+              <option>Bulk Bakery Order / Hampers</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-mono text-[10px] text-stone-500 uppercase tracking-wider mb-1">Event Date & Details</label>
+          <textarea rows="3" placeholder="Tell us about the occasion, weight (e.g. 1kg / 2kg), or preferred table time..." class="w-full bg-stone-50 border border-stone-200 px-4 py-2 text-xs text-stone-800 rounded-lg focus:outline-none focus:border-cinnamon"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-mocha text-amber-100 font-mono text-xs uppercase tracking-widest font-semibold rounded-xl hover:bg-espresso transition-colors">
+          Submit Inquiry to Bakehouse
+        </button>
+      </form>
+
+      <!-- Confirmation Toast -->
+      <div id="formSuccess" class="hidden text-center py-8 space-y-4">
+        <div class="w-12 h-12 mx-auto rounded-full bg-amber-100 text-cinnamon flex items-center justify-center text-xl font-bold">
+          ✓
+        </div>
+        <h4 class="font-display font-bold text-xl text-espresso">Inquiry Received</h4>
+        <p class="text-stone-500 text-xs max-w-xs mx-auto">
+          Thank you! Our head baker at Nany's Bakery will connect via WhatsApp/call shortly with flavor options and pricing.
+        </p>
+        <button onclick="closeModal()" class="px-6 py-2 border border-stone-200 text-xs font-mono uppercase text-stone-700 rounded-lg hover:border-cinnamon">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-borderSepia py-10 px-6 bg-white text-xs font-mono text-stone-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div>
+        <span class="text-espresso font-display font-bold text-sm block">NANY'S BAKERY & CAFE</span>
+        <p class="text-[11px] text-stone-500">Old Survey Road, Karanpur, Dehradun, Uttarakhand</p>
+      </div>
+      <div class="text-right text-[11px] text-stone-500">
+        &copy; 2026 Nany's Bakery.<br>
+        Bespoke Web Architecture by <span class="text-stone-800 font-semibold">Jan Hawk Studio</span>.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll Reveal Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function openModal() {
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('cafeForm').classList.remove('hidden');
+      document.getElementById('formSuccess').classList.add('hidden');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById('cafeForm').classList.add('hidden');
+      document.getElementById('formSuccess').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
