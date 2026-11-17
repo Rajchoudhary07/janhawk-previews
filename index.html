@@ -85,9 +85,117 @@
     ::-webkit-scrollbar-track { background: #0A0C10; }
     ::-webkit-scrollbar-thumb { background: #232B3A; border-radius: 2px; }
     ::-webkit-scrollbar-thumb:hover { background: #C9A96E; }
+
+    /* The Contenders-style Preloader & Curtain Reveal */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background-color: #07090D;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 1.1s cubic-bezier(0.85, 0, 0.15, 1);
+    }
+    #preloader.loaded {
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+    .loader-progress-bar {
+      width: 0%;
+      height: 2px;
+      background: #C9A96E;
+      transition: width 0.08s linear;
+    }
+
+    /* Custom Magnetic Cursor (Desktop) */
+    @media (pointer: fine) {
+      body {
+        cursor: none;
+      }
+      a, button, input, textarea, select {
+        cursor: none;
+      }
+      .custom-cursor {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        z-index: 100000;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+      }
+      #cursor-dot {
+        width: 6px;
+        height: 6px;
+        background-color: #C9A96E;
+      }
+      #cursor-ring {
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(201, 169, 110, 0.45);
+        transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                    height 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+                    background-color 0.25s ease, 
+                    border-color 0.25s ease;
+      }
+      body.cursor-hover #cursor-ring {
+        width: 64px;
+        height: 64px;
+        background-color: rgba(201, 169, 110, 0.12);
+        border-color: #C9A96E;
+      }
+    }
   </style>
 </head>
-<body class="bg-canvas text-neutral-300 font-sans antialiased selection:bg-white selection:text-black bg-grid">
+<body class="bg-canvas text-neutral-300 font-sans antialiased selection:bg-white selection:text-black bg-grid overflow-hidden">
+
+  <!-- Custom Magnetic Cursor Elements -->
+  <div id="cursor-dot" class="custom-cursor hidden md:block"></div>
+  <div id="cursor-ring" class="custom-cursor hidden md:block"></div>
+
+  <!-- Awwwards Fullscreen Preloader Curtain (The Contenders Style) -->
+  <div id="preloader" class="p-8 sm:p-14 text-white">
+    <!-- Preloader Header -->
+    <div class="flex items-center justify-between font-mono text-xs text-neutral-500 uppercase tracking-widest">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 rounded-full bg-accentBronze animate-pulse"></span>
+        <span class="text-white font-bold">JAN HAWK STUDIO</span>
+      </div>
+      <div class="hidden sm:block">STRATEGIC WEB ARCHITECTURE • 2026</div>
+    </div>
+
+    <!-- Preloader Centerpiece -->
+    <div class="max-w-4xl space-y-4 my-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/5 border border-white/10 text-accentBronze text-[10px] font-mono uppercase tracking-widest">
+        <span>●</span> Initialization Protocol
+      </div>
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight text-white leading-none">
+        WHERE DISTINCTION<br>
+        <span class="text-neutral-500">MEETS ARCHITECTURE.</span>
+      </h1>
+      <p class="text-xs sm:text-sm text-neutral-400 font-mono max-w-lg">
+        Bespoke digital architecture engineered for legal counsel, corporate advisory, and high-status commercial practices.
+      </p>
+    </div>
+
+    <!-- Preloader Footer & Progress Bar -->
+    <div class="space-y-4 font-mono">
+      <div class="w-full bg-white/10 h-[2px] overflow-hidden rounded-full">
+        <div id="loaderBar" class="loader-progress-bar h-full"></div>
+      </div>
+      <div class="flex justify-between items-end text-xs text-neutral-400">
+        <div class="flex items-center gap-3">
+          <span class="inline-block w-1.5 h-1.5 rounded-full bg-accentBronze animate-ping"></span>
+          <span id="loaderStatus" class="uppercase tracking-widest text-[11px]">Calibrating Swiss typographic grids...</span>
+        </div>
+        <div class="text-3xl sm:text-5xl font-extrabold text-white font-mono tracking-tighter">
+          <span id="loaderCount">0</span>%
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Top Status Bar -->
   <aside class="w-full border-b border-borderSubtle bg-canvas/80 backdrop-blur-sm px-6 py-2.5 text-[11px] font-mono tracking-widest uppercase text-neutral-500 flex justify-between items-center">
@@ -119,7 +227,7 @@
 
       <!-- Navigation Links -->
       <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-neutral-400">
-        <a href="#doctrine" class="link-hover hover:text-white transition-colors">01. Doctrine</a>
+        <a href="#approach" class="link-hover hover:text-white transition-colors">01. Approach</a>
         <a href="#capabilities" class="link-hover hover:text-white transition-colors">02. Capabilities</a>
         <a href="#works" class="link-hover hover:text-white transition-colors">03. Selected Works</a>
         <a href="catalogue.html" class="link-hover hover:text-white transition-colors">04. 15 Collections</a>
@@ -199,60 +307,107 @@
     </div>
   </section>
 
-  <!-- Section 01: Doctrine / Manifesto -->
-  <section id="doctrine" class="py-24 px-6 border-b border-borderSubtle">
-    <div class="max-w-7xl mx-auto">
+  <!-- Section 01: Our Approach & Strategic Doctrine (Modeled directly after The Contenders) -->
+  <section id="approach" class="py-28 px-6 border-b border-borderSubtle">
+    <div class="max-w-7xl mx-auto space-y-20">
       
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
-        <div class="lg:col-span-4">
-          <span class="font-mono text-xs text-accentBronze uppercase tracking-widest block mb-2">01 / The Doctrine</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
-            The problem with 99% of websites.
+      <!-- Section Header -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start reveal">
+        <div class="lg:col-span-5">
+          <span class="font-mono text-xs text-accentBronze uppercase tracking-widest block mb-2">01 / Our Approach</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase leading-[1.05]">
+            Where Strategy Delivers Measurable Impact.
           </h2>
         </div>
-        <div class="lg:col-span-8 space-y-6 text-neutral-300 font-light text-base leading-relaxed">
+        <div class="lg:col-span-7 space-y-6 text-neutral-300 font-light text-base sm:text-lg leading-relaxed">
           <p>
-            In today's commercial landscape, most web design is an assembly line: bloated WordPress themes, cookie-cutter Wix blocks, sluggish page load times, and generic stock imagery that actively degrades trust with high-value clients.
+            In today's commercial landscape, 99% of agency websites rely on assembly-line templates, heavy WordPress plugins, sluggish database queries, and generic stock aesthetics that actively degrade trust with high-value clients.
           </p>
-          <p>
-            If your practice commands premium rates—whether in courtrooms, corporate boardrooms, or private clinics—your digital presence must communicate immediate authority. We build digital architecture from the ground up: semantic, lightweight code loading in under 1 second, rigorous typography, and seamless conversion channels.
+          <p class="text-sm text-neutral-400 font-normal">
+            At Jan Hawk Studio, we approach digital architecture like an elite consultancy. We deconstruct your practice's commercial reality, eliminate all generic template bloat, and engineer bespoke digital presence benchmarked against European editorial standards.
           </p>
         </div>
       </div>
 
-      <!-- 4 Pillars Comparison -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- The 3-Phase Contenders-style Framework -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8 border-t border-borderSubtle">
         
-        <div class="p-8 border border-borderSubtle bg-panel/60 rounded-xl space-y-4 hover:border-borderHighlight transition-all reveal reveal-delay-1">
-          <span class="font-mono text-xs text-neutral-500 uppercase block">01 // CODEBASE</span>
-          <h3 class="font-sans font-bold text-lg text-white">Sub-Second Velocity</h3>
-          <p class="text-xs text-neutral-400 font-light leading-relaxed">
-            Zero plugins, zero database lag. Pure custom HTML5, Tailwind CSS, and lightweight scripts optimized for 98+ Google Lighthouse scores.
-          </p>
+        <!-- Phase 01 -->
+        <div class="p-8 border border-borderSubtle bg-panel/50 rounded-2xl space-y-6 hover:border-accentBronze/50 transition-all reveal reveal-delay-1 flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between pb-4 border-b border-white/5">
+              <span class="font-mono text-xs text-accentBronze uppercase font-bold tracking-widest">Phase 01 // Immersion</span>
+              <span class="font-mono text-xs text-neutral-500">01 / 03</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-accentBronze transition-colors">
+              Framing the Objectives You Are Trying to Achieve
+            </h3>
+            <p class="text-xs text-neutral-400 font-light leading-relaxed">
+              We immerse ourselves in your practice's commercial world before writing a single line of code. We identify what makes your firm distinctive and what commands premium retainer fees.
+            </p>
+            <ul class="space-y-2.5 pt-4 text-xs font-mono text-neutral-300 border-t border-white/5">
+              <li class="flex items-center gap-2"><span class="text-accentBronze">→</span> Customer & Audience Perception Insight</li>
+              <li class="flex items-center gap-2"><span class="text-accentBronze">→</span> Category & Competitor Deconstruction</li>
+              <li class="flex items-center gap-2"><span class="text-accentBronze">→</span> Cultural & Statutory Contextual Insight</li>
+              <li class="flex items-center gap-2"><span class="text-accentBronze">→</span> High-Value Positioning Architecture</li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-white/5">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Strategic Deliverable</span>
+            <span class="text-xs text-white font-mono font-semibold">Architectural Positioning Directive</span>
+          </div>
         </div>
 
-        <div class="p-8 border border-borderSubtle bg-panel/60 rounded-xl space-y-4 hover:border-borderHighlight transition-all reveal reveal-delay-2">
-          <span class="font-mono text-xs text-neutral-500 uppercase block">02 // TYPOGRAPHY</span>
-          <h3 class="font-sans font-bold text-lg text-white">Editorial Discipline</h3>
-          <p class="text-xs text-neutral-400 font-light leading-relaxed">
-            Inspired by Swiss International grids and European editorial broadsheets. Hand-paired Playfair, Cormorant, and Neue Haas typefaces.
-          </p>
+        <!-- Phase 02 -->
+        <div class="p-8 border border-borderSubtle bg-panel/50 rounded-2xl space-y-6 hover:border-blue-400/50 transition-all reveal reveal-delay-2 flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between pb-4 border-b border-white/5">
+              <span class="font-mono text-xs text-blue-400 uppercase font-bold tracking-widest">Phase 02 // Engineering</span>
+              <span class="font-mono text-xs text-neutral-500">02 / 03</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
+              Solving Problems With a Tailored Creative Platform
+            </h3>
+            <p class="text-xs text-neutral-400 font-light leading-relaxed">
+              We translate strategic direction into a commanding, bespoke digital reality. We build custom typographic systems, obsidian layouts, and fluid micro-interactions with zero generic blocks.
+            </p>
+            <ul class="space-y-2.5 pt-4 text-xs font-mono text-neutral-300 border-t border-white/5">
+              <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Swiss Modernist Typographic Systems</li>
+              <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Pure Hand-Crafted Semantic Codebase</li>
+              <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Deep Obsidian Spatial Composition</li>
+              <li class="flex items-center gap-2"><span class="text-blue-400">→</span> Frictionless User Behavior Pathways</li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-white/5">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Design Deliverable</span>
+            <span class="text-xs text-white font-mono font-semibold">Awwwards-Caliber Digital Presence</span>
+          </div>
         </div>
 
-        <div class="p-8 border border-borderSubtle bg-panel/60 rounded-xl space-y-4 hover:border-borderHighlight transition-all reveal reveal-delay-3">
-          <span class="font-mono text-xs text-neutral-500 uppercase block">03 // STATUTORY READY</span>
-          <h3 class="font-sans font-bold text-lg text-white">BCI Rule 36 Immunity</h3>
-          <p class="text-xs text-neutral-400 font-light leading-relaxed">
-            For advocates and legal chambers: pre-configured with Bar Council of India non-solicitation disclaimers, ensuring 100% regulatory safety.
-          </p>
-        </div>
-
-        <div class="p-8 border border-borderSubtle bg-panel/60 rounded-xl space-y-4 hover:border-borderHighlight transition-all reveal space-y-4">
-          <span class="font-mono text-xs text-neutral-500 uppercase block">04 // INTAKE</span>
-          <h3 class="font-sans font-bold text-lg text-white">Direct Client Inflow</h3>
-          <p class="text-xs text-neutral-400 font-light leading-relaxed">
-            Built-in confidential case scheduling, interactive fee/subsidy estimators, and 1-tap WhatsApp consultation channels.
-          </p>
+        <!-- Phase 03 -->
+        <div class="p-8 border border-borderSubtle bg-panel/50 rounded-2xl space-y-6 hover:border-emerald-400/50 transition-all reveal reveal-delay-3 flex flex-col justify-between group">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between pb-4 border-b border-white/5">
+              <span class="font-mono text-xs text-emerald-400 uppercase font-bold tracking-widest">Phase 03 // Distinction</span>
+              <span class="font-mono text-xs text-neutral-500">03 / 03</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+              Delivering the Tools to Ensure & Measure Sovereign Success
+            </h3>
+            <p class="text-xs text-neutral-400 font-light leading-relaxed">
+              We deploy high-performance infrastructure engineered for sub-second velocity, regulatory safety, and frictionless client intake without middleman cuts.
+            </p>
+            <ul class="space-y-2.5 pt-4 text-xs font-mono text-neutral-300 border-t border-white/5">
+              <li class="flex items-center gap-2"><span class="text-emerald-400">→</span> Sub-Second Global Edge Delivery (&lt; 0.8s)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">→</span> Statutory Non-Solicitation Immunity (BCI / ABA)</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">→</span> Direct Encrypted Consultation Modal</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-400">→</span> Turnkey Custom Domain & Cloud SSL SLA</li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-white/5">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block">Commercial Deliverable</span>
+            <span class="text-xs text-white font-mono font-semibold">Direct Sovereign Client Inflow</span>
+          </div>
         </div>
 
       </div>
@@ -712,6 +867,76 @@
   </footer>
 
   <script>
+    // Awwwards Preloader Counter & Curtain Wipe
+    window.addEventListener('DOMContentLoaded', () => {
+      let progress = 0;
+      const countEl = document.getElementById('loaderCount');
+      const barEl = document.getElementById('loaderBar');
+      const statusEl = document.getElementById('loaderStatus');
+      const preloader = document.getElementById('preloader');
+
+      const statusMessages = [
+        "Calibrating Swiss typographic grids...",
+        "Synthesizing obsidian architectural canvas...",
+        "Validating sub-second execution engine...",
+        "Jan Hawk Studio initialized."
+      ];
+
+      const timer = setInterval(() => {
+        progress += Math.floor(Math.random() * 8) + 4;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(timer);
+          if (countEl) countEl.innerText = "100";
+          if (barEl) barEl.style.width = "100%";
+          if (statusEl) statusEl.innerText = statusMessages[3];
+          setTimeout(() => {
+            if (preloader) preloader.classList.add('loaded');
+            document.body.classList.remove('overflow-hidden');
+          }, 350);
+        } else {
+          if (countEl) countEl.innerText = progress;
+          if (barEl) barEl.style.width = progress + "%";
+          if (statusEl) {
+            if (progress > 30 && progress < 65) statusEl.innerText = statusMessages[1];
+            else if (progress >= 65 && progress < 90) statusEl.innerText = statusMessages[2];
+          }
+        }
+      }, 35);
+    });
+
+    // Custom Magnetic Cursor (Desktop only)
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorRing = document.getElementById('cursor-ring');
+
+    if (window.matchMedia('(pointer: fine)').matches && cursorDot && cursorRing) {
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+      let ringX = mouseX;
+      let ringY = mouseY;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      });
+
+      function animateRing() {
+        ringX += (mouseX - ringX) * 0.18;
+        ringY += (mouseY - ringY) * 0.18;
+        cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
+        requestAnimationFrame(animateRing);
+      }
+      requestAnimationFrame(animateRing);
+
+      // Expand ring on interactive element hover
+      const interactiveElements = document.querySelectorAll('a, button, input, select, textarea');
+      interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+    }
+
     // Scroll Reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
