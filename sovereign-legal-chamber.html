@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advocate Ritu Gaur | Legal Counsel & Advocate | Haridwar & High Court of Uttarakhand</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#090B0E',
+            chambers: '#10141A',
+            cardbg: '#141922',
+            bronze: '#C9A96E',
+            bronzeLight: '#DFCA9B',
+            mutedGold: 'rgba(201, 169, 110, 0.15)',
+            borderMuted: 'rgba(255, 255, 255, 0.08)',
+            borderBronze: 'rgba(201, 169, 110, 0.35)',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            editorial: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bg-noise {
+      background-image: radial-gradient(rgba(201, 169, 110, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    .img-zoom-container {
+      overflow: hidden;
+    }
+    .img-zoom {
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .img-zoom-container:hover .img-zoom {
+      transform: scale(1.05);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090B0E;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #232933;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #C9A96E;
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-neutral-300 font-sans antialiased selection:bg-bronze selection:text-obsidian bg-noise">
+
+  <!-- Jan Hawk Studio Staging Sample Banner -->
+  <aside class="w-full bg-neutral-900 border-b border-white/10 px-6 py-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400 flex justify-between items-center z-50 relative">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+      <span class="text-white font-bold">JAN HAWK STUDIO // ARCHITECTURAL SAMPLE DEMONSTRATION</span>
+    </div>
+    <a href="index.html" class="text-amber-400 hover:text-white underline transition-colors">&larr; Return to Jan Hawk Studio Portfolio</a>
+  </aside>
+
+  <!-- Statutory Bar Council of India Disclaimer Bar -->
+  <aside aria-label="Official Disclaimer" class="w-full bg-[#050709] py-2 px-6 border-b border-white/5 text-[11px] font-mono tracking-wider text-neutral-400 uppercase flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-bronze animate-pulse"></span>
+      <span>CHAMBERS OF ADVOCATE RITU GAUR • HARIDWAR DISTRICT COURTS & HIGH COURT OF UTTARAKHAND</span>
+    </div>
+    <div class="hidden md:flex items-center gap-4 text-neutral-400">
+      <span id="local-time">HARIDWAR • 12:00 PM IST</span>
+      <span>•</span>
+      <span class="text-bronze">BCI RULE 36 COMPLIANT</span>
+    </div>
+  </aside>
+
+  <!-- Main Navigation -->
+  <header class="sticky top-0 z-40 bg-obsidian/90 backdrop-blur-md border-b border-white/10 transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Monogram -->
+      <a href="#" class="group flex items-center gap-3">
+        <div class="w-10 h-10 border border-bronze/40 flex items-center justify-center font-editorial text-lg text-bronze group-hover:bg-bronze group-hover:text-obsidian transition-colors font-semibold">
+          ARG
+        </div>
+        <div>
+          <span class="block font-serif tracking-wide text-neutral-100 text-sm font-semibold uppercase group-hover:text-bronze transition-colors">ADVOCATE RITU GAUR</span>
+          <span class="block text-[10px] tracking-widest text-neutral-400 font-mono uppercase">Counsel & Legal Advocate • Haridwar</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-neutral-400">
+        <a href="#about" class="hover:text-bronze transition-colors">01. Chamber</a>
+        <a href="#practice" class="hover:text-bronze transition-colors">02. Practice Areas</a>
+        <a href="#courts" class="hover:text-bronze transition-colors">03. Jurisdiction</a>
+        <a href="#consultation" class="hover:text-bronze transition-colors">04. Consultation</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="hidden sm:flex items-center gap-4">
+        <button onclick="openModal()" class="px-5 py-2.5 bg-bronze/10 border border-bronze/50 hover:bg-bronze hover:text-obsidian text-bronze text-xs font-mono uppercase tracking-widest transition-all font-semibold">
+          Schedule Conference
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-neutral-400 hover:text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-chambers border-b border-white/10 px-6 py-6 space-y-4 text-xs font-mono uppercase tracking-widest">
+      <a href="#about" onclick="toggleMobileMenu()" class="block text-neutral-300 hover:text-bronze">01. Chamber</a>
+      <a href="#practice" onclick="toggleMobileMenu()" class="block text-neutral-300 hover:text-bronze">02. Practice Areas</a>
+      <a href="#courts" onclick="toggleMobileMenu()" class="block text-neutral-300 hover:text-bronze">03. Jurisdiction</a>
+      <a href="#consultation" onclick="toggleMobileMenu()" class="block text-neutral-300 hover:text-bronze">04. Consultation</a>
+      <button onclick="openModal(); toggleMobileMenu();" class="w-full mt-4 py-3 bg-bronze text-obsidian text-center font-bold">
+        Schedule Conference
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section with Architectural Photo Background -->
+  <section class="relative min-h-[85vh] flex items-center justify-center px-6 py-20 overflow-hidden">
+    <!-- Ambient Backdrop Image with Gradients -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80" alt="Law Chambers" class="w-full h-full object-cover opacity-15">
+      <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/90 to-obsidian/75"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto w-full relative z-10 text-center">
+      <div class="reveal inline-flex items-center gap-2 px-3 py-1 bg-white/[0.03] border border-white/10 text-bronze text-[11px] font-mono tracking-widest uppercase mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-bronze"></span>
+        Legal Counsel & Litigation Practice • Haridwar & Uttarakhand
+      </div>
+
+      <h1 class="reveal font-serif text-4xl sm:text-6xl md:text-7xl font-normal text-white leading-[1.1] tracking-tight mb-8">
+        Advocacy with <span class="font-editorial italic font-semibold text-bronze">Precision</span>.<br>
+        Upholding Justice Across Uttarakhand.
+      </h1>
+
+      <p class="reveal max-w-2xl mx-auto text-neutral-300 text-base md:text-lg font-light leading-relaxed mb-10">
+        Dedicated legal counsel across Civil Disputes, Criminal Defense, Matrimonial & Family Jurisprudence, and High Court Writs. Dedicated to meticulous case preparation and resolute client advocacy.
+      </p>
+
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 bg-bronze text-obsidian font-mono text-xs uppercase tracking-widest font-bold hover:bg-bronzeLight transition-all shadow-xl shadow-bronze/10">
+          Request Chamber Conference
+        </button>
+        <a href="#practice" class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-mono text-xs uppercase tracking-widest hover:border-bronze hover:text-bronze transition-colors">
+          View Practice Disciplines
+        </a>
+      </div>
+
+      <!-- Trust Pillars Grid -->
+      <div class="reveal mt-16 pt-10 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+        <div class="p-4 bg-cardbg/60 border border-white/5 rounded-lg">
+          <span class="block font-mono text-xs text-neutral-500 uppercase tracking-wider mb-1">Chamber</span>
+          <span class="font-serif text-lg text-white font-medium">Advocate Ritu Gaur</span>
+        </div>
+        <div class="p-4 bg-cardbg/60 border border-white/5 rounded-lg">
+          <span class="block font-mono text-xs text-neutral-500 uppercase tracking-wider mb-1">Trial Forum</span>
+          <span class="font-serif text-lg text-white font-medium">District Courts, Haridwar</span>
+        </div>
+        <div class="p-4 bg-cardbg/60 border border-white/5 rounded-lg">
+          <span class="block font-mono text-xs text-neutral-500 uppercase tracking-wider mb-1">Appellate Bench</span>
+          <span class="font-serif text-lg text-white font-medium">Uttarakhand High Court</span>
+        </div>
+        <div class="p-4 bg-cardbg/60 border border-white/5 rounded-lg">
+          <span class="block font-mono text-xs text-neutral-500 uppercase tracking-wider mb-1">Statutory Standard</span>
+          <span class="font-serif text-lg text-white font-medium">BCI Rule 36 Direct</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chamber Philosophy -->
+  <section id="about" class="py-24 px-6 border-t border-white/10 bg-chambers/40">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-6 space-y-6 reveal">
+        <span class="font-mono text-xs text-bronze uppercase tracking-widest">01 / Chamber Philosophy & Ethos</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-white leading-tight">
+          Every client matter demands absolute preparation, clarity of law, and relentless dedication.
+        </h2>
+        <div class="w-12 h-[1px] bg-bronze"></div>
+        <p class="text-neutral-300 font-light text-sm leading-relaxed">
+          The Chambers of Advocate Ritu Gaur represent individuals, families, and commercial entities before the District Courts of Haridwar, Family Courts, Special Tribunals, and the High Court of Uttarakhand.
+        </p>
+        <p class="text-neutral-400 font-light text-sm leading-relaxed">
+          Our approach blends deep empathy for client circumstances with unyielding legal discipline. From complex land title disputes to sensitive family mediation and vigorous criminal courtroom defense, every brief is researched with exhaustive legal jurisprudence.
+        </p>
+
+        <div class="pt-2">
+          <blockquote class="border-l-2 border-bronze pl-4 text-xs font-editorial italic text-neutral-200 text-base">
+            "Justice is achieved when legal acumen meets deep personal commitment to the truth."
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Chamber Visual Card -->
+      <div class="lg:col-span-6 reveal reveal-delay-2">
+        <div class="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl img-zoom-container bg-cardbg">
+          <img 
+            src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1200&q=80" 
+            alt="Law Library & Statutes" 
+            class="w-full h-[400px] object-cover img-zoom opacity-70"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 p-6 bg-cardbg/95 backdrop-blur-md border border-white/10 rounded-lg">
+            <span class="font-mono text-[10px] text-bronze uppercase tracking-widest block mb-1">Litigation Excellence</span>
+            <span class="font-serif text-white text-base">District & Sessions Court, Haridwar • High Court of Uttarakhand</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Practice Areas Index -->
+  <section id="practice" class="py-24 px-6 border-t border-white/10">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+        <div>
+          <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-2">02 / Practice Disciplines</span>
+          <h2 class="font-serif text-3xl sm:text-5xl text-white">Areas of Legal Counsel</h2>
+        </div>
+        <p class="text-neutral-400 text-xs font-mono max-w-md uppercase tracking-wider">
+          Comprehensive legal representation across Haridwar civil courts, criminal benches, and appellate tribunals.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Practice 1: Civil & Property -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze/60 rounded-xl overflow-hidden transition-all duration-300 reveal reveal-delay-1 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80" alt="Civil Law" class="w-full h-full object-cover img-zoom opacity-50">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-obsidian/85 backdrop-blur-md border border-white/10 text-xs font-mono text-bronze font-bold rounded">
+              01 / CIVIL & PROPERTY
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-bronzeLight transition-colors">Property & Land Disputes</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-6">
+              Title suits, partition matters, injunction applications, specific performance of contracts, easement rights, and land acquisition litigation across Haridwar and adjoining districts.
+            </p>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider group-hover:text-white transition-colors">Civil Courts Haridwar &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Practice 2: Criminal Defense -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze/60 rounded-xl overflow-hidden transition-all duration-300 reveal reveal-delay-2 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1453733197781-79df9346e911?auto=format&fit=crop&w=800&q=80" alt="Criminal Defense" class="w-full h-full object-cover img-zoom opacity-50">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-obsidian/85 backdrop-blur-md border border-white/10 text-xs font-mono text-bronze font-bold rounded">
+              02 / CRIMINAL DEFENSE
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-bronzeLight transition-colors">Trial Advocacy & Bail Matters</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-6">
+              Vigorous defense before Sessions Courts, anticipatory & regular bail applications, quashing petitions, revision appeals, and criminal trial representation under Bharatiya Nyaya Sanhita / IPC.
+            </p>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider group-hover:text-white transition-colors">Sessions & Magisterial Courts &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Practice 3: Matrimonial & Family Law -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze/60 rounded-xl overflow-hidden transition-all duration-300 reveal reveal-delay-3 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80" alt="Family Law" class="w-full h-full object-cover img-zoom opacity-50">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-obsidian/85 backdrop-blur-md border border-white/10 text-xs font-mono text-bronze font-bold rounded">
+              03 / FAMILY & MATRIMONIAL
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-bronzeLight transition-colors">Matrimonial & Domestic Relations</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-6">
+              Divorce proceedings (mutual and contested), child custody and guardianship, Section 125 maintenance, Domestic Violence Act complaints, and strategic dispute mediation.
+            </p>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider group-hover:text-white transition-colors">Family Courts Haridwar &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Practice 4: High Court Writs -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze/60 rounded-xl overflow-hidden transition-all duration-300 reveal reveal-delay-1 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="High Court Writs" class="w-full h-full object-cover img-zoom opacity-50">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-obsidian/85 backdrop-blur-md border border-white/10 text-xs font-mono text-bronze font-bold rounded">
+              04 / HIGH COURT
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-bronzeLight transition-colors">Writ Petitions & Appeals</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-6">
+              Representation under Articles 226 and 227 of the Constitution before the High Court of Uttarakhand for judicial review, service matters, and statutory enforcement.
+            </p>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider group-hover:text-white transition-colors">Uttarakhand High Court &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Practice 5: Revenue & Land Records -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze/60 rounded-xl overflow-hidden transition-all duration-300 reveal reveal-delay-2 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Revenue Law" class="w-full h-full object-cover img-zoom opacity-50">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-obsidian/85 backdrop-blur-md border border-white/10 text-xs font-mono text-bronze font-bold rounded">
+              05 / REVENUE LAW
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-bronzeLight transition-colors">Uttarakhand Revenue & ZALR</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-6">
+              Revenue court litigations before Tehsildar, SDM, and Commissioner Courts concerning land mutation, demarcation, correction of revenue records, and tenancy rights.
+            </p>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider group-hover:text-white transition-colors">Revenue Tribunals &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Practice 6: Consumer & Cheque Bounce -->
+        <div class="bg-cardbg border border-white/10 hover:border-bronze/60 rounded-xl overflow-hidden transition-all duration-300 reveal reveal-delay-3 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80" alt="Consumer Disputes" class="w-full h-full object-cover img-zoom opacity-50">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-obsidian/85 backdrop-blur-md border border-white/10 text-xs font-mono text-bronze font-bold rounded">
+              06 / COMMERCIAL & NI ACT
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-bronzeLight transition-colors">Consumer Disputes & Section 138</h3>
+            <p class="text-neutral-400 text-xs font-light leading-relaxed mb-6">
+              Cheque bounce proceedings under Section 138 of the Negotiable Instruments Act, debt recovery, and consumer compensation claims before District Consumer Fora.
+            </p>
+            <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider group-hover:text-white transition-colors">District Consumer Forum &rarr;</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Courts & Jurisdictions -->
+  <section id="courts" class="py-20 px-6 border-t border-white/10 bg-chambers/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-2">03 / Forum Competency</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-white">Courts of Regular Appearance</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 bg-cardbg border border-white/10 rounded-xl text-center">
+          <span class="block font-serif text-xl text-white mb-2">District & Sessions Court</span>
+          <p class="text-neutral-400 text-xs font-mono">Haridwar & Roorkee</p>
+        </div>
+        <div class="p-6 bg-cardbg border border-white/10 rounded-xl text-center">
+          <span class="block font-serif text-xl text-white mb-2">High Court of Uttarakhand</span>
+          <p class="text-neutral-400 text-xs font-mono">Nainital Appellate Bench</p>
+        </div>
+        <div class="p-6 bg-cardbg border border-white/10 rounded-xl text-center">
+          <span class="block font-serif text-xl text-white mb-2">Principal Family Court</span>
+          <p class="text-neutral-400 text-xs font-mono">Haridwar Judicial District</p>
+        </div>
+        <div class="p-6 bg-cardbg border border-white/10 rounded-xl text-center">
+          <span class="block font-serif text-xl text-white mb-2">Revenue & Consumer Fora</span>
+          <p class="text-neutral-400 text-xs font-mono">Uttarakhand State & District</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation Booking Section -->
+  <section id="consultation" class="py-24 px-6 border-t border-white/10 bg-gradient-to-b from-obsidian to-chambers">
+    <div class="max-w-4xl mx-auto text-center reveal">
+      <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-3">04 / Direct Chamber Access</span>
+      <h2 class="font-serif text-4xl sm:text-5xl text-white mb-6">Schedule a Chamber Consultation</h2>
+      <p class="text-neutral-400 text-sm font-light max-w-xl mx-auto mb-10 leading-relaxed">
+        Consultations are held at chambers in Haridwar or by prior virtual conference. All discussions are protected under advocate-client legal privilege.
+      </p>
+
+      <div class="p-8 border border-white/10 bg-cardbg rounded-xl max-w-2xl mx-auto text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div>
+          <span class="font-mono text-[11px] text-neutral-400 uppercase tracking-wider block">Chamber Location</span>
+          <p class="text-white text-sm font-semibold mt-1">Advocate Ritu Gaur Chamber</p>
+          <p class="text-neutral-400 text-xs">District Court Complex, Haridwar, Uttarakhand</p>
+          <p class="text-bronze text-xs font-mono mt-1">Official Registry: ritu.gaur200@gmail.com</p>
+        </div>
+        <button onclick="openModal()" class="w-full sm:w-auto px-6 py-3.5 bg-bronze text-obsidian text-xs font-mono uppercase tracking-widest font-bold hover:bg-bronzeLight transition-colors">
+          Request Slot &rarr;
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation Modal -->
+  <div id="modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-cardbg border border-bronze/40 max-w-lg w-full p-8 rounded-xl relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-6 right-6 text-neutral-400 hover:text-white font-mono text-base font-bold">
+        ✕
+      </button>
+
+      <div class="mb-6">
+        <span class="font-mono text-[10px] text-bronze uppercase tracking-widest block">Confidential Enquiry</span>
+        <h3 class="font-serif text-2xl text-white">Chamber Consultation Request</h3>
+      </div>
+
+      <form id="consultForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Full Name</label>
+          <input type="text" required placeholder="e.g. Ramesh Kumar" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Mobile / WhatsApp</label>
+            <input type="tel" required placeholder="+91 98XXX XXXXX" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+          </div>
+          <div>
+            <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Email</label>
+            <input type="email" required placeholder="name@domain.com" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Nature of Legal Matter</label>
+          <select class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            <option>Civil Property / Land Partition Dispute</option>
+            <option>Matrimonial / Divorce / Custody Case</option>
+            <option>Criminal Bail / Trial Defense</option>
+            <option>Uttarakhand High Court Writ Petition</option>
+            <option>Revenue Court Demarcation / Mutation</option>
+            <option>Consumer / Cheque Bounce (Sec 138)</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Brief Description of the Case</label>
+          <textarea rows="3" placeholder="Provide brief summary for preliminary assessment..." class="w-full bg-obsidian border border-white/15 px-4 py-2 text-xs text-white rounded focus:border-bronze focus:outline-none"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-bronze text-obsidian font-mono text-xs uppercase tracking-widest font-bold hover:bg-bronzeLight transition-colors">
+          Transmit Confidential Request
+        </button>
+      </form>
+
+      <!-- Confirmation Toast -->
+      <div id="formSuccess" class="hidden text-center py-8 space-y-4">
+        <div class="w-12 h-12 mx-auto rounded-full bg-bronze/20 border border-bronze flex items-center justify-center text-bronze text-xl font-bold">
+          ✓
+        </div>
+        <h4 class="font-serif text-xl text-white">Consultation Request Logged</h4>
+        <p class="text-neutral-400 text-xs max-w-xs mx-auto">
+          Your confidential enquiry has been registered. Chamber staff will contact you to confirm appointment date and time.
+        </p>
+        <button onclick="closeModal()" class="px-6 py-2 border border-white/20 text-xs font-mono uppercase text-white hover:border-bronze rounded">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Statutory Disclaimer Box -->
+  <section class="border-t border-white/10 py-8 px-6 bg-[#040608] text-[11px] font-mono text-neutral-500">
+    <div class="max-w-7xl mx-auto">
+      <p class="leading-relaxed text-neutral-400">
+        <strong class="text-neutral-300">DISCLAIMER & STATUTORY NOTICE:</strong> This digital chamber portfolio is published in compliance with the Bar Council of India regulations under the Advocates Act, 1961. It is meant exclusively to provide basic information about Advocate Ritu Gaur's chamber and practice areas upon specific request of the user. It does not constitute legal advertisement, solicitation, or inducement. Visiting this website or submitting an intake form does not create an advocate-client relationship until formal engagement is confirmed.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-10 px-6 bg-[#020305] text-xs font-mono text-neutral-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div>
+        <span class="text-neutral-200 font-serif font-bold text-sm block">CHAMBERS OF ADVOCATE RITU GAUR</span>
+        <p class="text-[11px] text-neutral-400">Haridwar District Courts & High Court of Uttarakhand</p>
+      </div>
+      <div class="text-right text-[11px] text-neutral-500">
+        &copy; 2026 Advocate Ritu Gaur Chambers.<br>
+        Bespoke Web Architecture by <span class="text-bronze">Jan Hawk Studio</span>.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: true };
+      const timeStr = now.toLocaleTimeString('en-US', options);
+      const el = document.getElementById('local-time');
+      if (el) el.innerText = `HARIDWAR • ${timeStr} IST`;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function openModal() {
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('consultForm').classList.remove('hidden');
+      document.getElementById('formSuccess').classList.add('hidden');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById('consultForm').classList.add('hidden');
+      document.getElementById('formSuccess').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

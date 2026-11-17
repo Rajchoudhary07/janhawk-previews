@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dangwal Dental Clinic | Advanced Dentistry & Implantology | Ballupur Chowk, Dehradun</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400;1,6..72,600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clinicalWhite: '#F8FAF9',
+            clinicalDark: '#0B1315',
+            clinicalCard: '#FFFFFF',
+            sage: '#0E766E',
+            sageLight: '#14B8A6',
+            sageSubtle: 'rgba(14, 118, 110, 0.08)',
+            softGray: '#F0F4F4',
+            borderLight: 'rgba(15, 23, 42, 0.08)',
+          },
+          fontFamily: {
+            display: ['"Syne"', 'sans-serif'],
+            serif: ['"Newsreader"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .bg-grid {
+      background-image: linear-gradient(to right, rgba(14, 118, 110, 0.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(14, 118, 110, 0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    
+    /* Scroll Reveal Animation Styles */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* Image zoom hover effect */
+    .img-zoom-container {
+      overflow: hidden;
+    }
+    .img-zoom {
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .img-zoom-container:hover .img-zoom {
+      transform: scale(1.05);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F8FAF9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #CBD5E1;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0E766E;
+    }
+  </style>
+</head>
+<body class="bg-clinicalWhite text-slate-800 font-sans antialiased selection:bg-sage selection:text-white bg-grid">
+
+  <!-- Jan Hawk Studio Staging Sample Banner -->
+  <aside class="w-full bg-neutral-900 border-b border-white/10 px-6 py-2 text-[10px] font-mono uppercase tracking-widest text-neutral-400 flex justify-between items-center z-50 relative">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+      <span class="text-white font-bold">JAN HAWK STUDIO // CLINICAL HEALTHCARE SAMPLE DEMONSTRATION</span>
+    </div>
+    <a href="../index.html" class="text-teal-400 hover:text-white underline transition-colors">&larr; Return to Jan Hawk Studio Portfolio</a>
+  </aside>
+
+  <!-- Clinical Status Bar -->
+  <aside aria-label="Clinical Hours and Status" class="w-full bg-clinicalDark text-neutral-400 py-2 px-6 text-[11px] font-mono tracking-wider uppercase flex justify-between items-center border-b border-white/5">
+    <div class="flex items-center gap-3">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>BALLUPUR CHOWK, DEHRADUN • CLINIC OPEN FOR APPOINTMENTS</span>
+    </div>
+    <div class="hidden sm:flex items-center gap-4 text-neutral-400">
+      <span>MON–SAT: 10:00 AM – 7:30 PM</span>
+      <span>•</span>
+      <span class="text-emerald-400 font-semibold">DIRECT DESK: +91 94120 XXXXX</span>
+    </div>
+  </aside>
+
+  <!-- Navigation Bar -->
+  <header class="sticky top-0 z-40 bg-clinicalWhite/90 backdrop-blur-md border-b border-borderLight transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Clinic Brand -->
+      <a href="#" class="group flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-sage flex items-center justify-center text-white font-display font-bold text-sm shadow-sm group-hover:scale-105 transition-transform">
+          DDC
+        </div>
+        <div>
+          <span class="block font-display tracking-tight text-clinicalDark text-base font-bold uppercase group-hover:text-sage transition-colors">DANGWAL DENTAL</span>
+          <span class="block text-[10px] tracking-widest text-neutral-500 font-mono uppercase">Clinic & Implant Centre</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-mono tracking-wider uppercase text-slate-600">
+        <a href="#about" class="hover:text-sage transition-colors">01. Clinic Care</a>
+        <a href="#treatments" class="hover:text-sage transition-colors">02. Treatments</a>
+        <a href="#facility" class="hover:text-sage transition-colors">03. Facility</a>
+        <a href="#contact" class="hover:text-sage transition-colors">04. Visit</a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="hidden sm:flex items-center gap-4">
+        <button onclick="openModal()" class="px-5 py-2.5 bg-sage text-white text-xs font-mono uppercase tracking-wider font-semibold rounded-full hover:bg-teal-800 shadow-sm transition-all">
+          Book Appointment
+        </button>
+      </div>
+
+      <!-- Mobile Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden text-slate-700">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4 text-xs font-mono uppercase tracking-wider">
+      <a href="#about" onclick="toggleMobileMenu()" class="block text-slate-700 hover:text-sage">01. Clinic Care</a>
+      <a href="#treatments" onclick="toggleMobileMenu()" class="block text-slate-700 hover:text-sage">02. Treatments</a>
+      <a href="#facility" onclick="toggleMobileMenu()" class="block text-slate-700 hover:text-sage">03. Facility</a>
+      <a href="#contact" onclick="toggleMobileMenu()" class="block text-slate-700 hover:text-sage">04. Visit</a>
+      <button onclick="openModal(); toggleMobileMenu();" class="w-full mt-4 py-3 bg-sage text-white text-center font-bold rounded-full">
+        Book Appointment
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section with High-Res Minimalist Clinical Image -->
+  <section class="relative min-h-[85vh] flex items-center justify-center px-6 py-20 overflow-hidden">
+    <div class="max-w-5xl mx-auto w-full text-center">
+      
+      <div class="reveal inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sageSubtle border border-teal-200 text-sage text-xs font-mono tracking-wider uppercase mb-8">
+        <span class="w-1.5 h-1.5 rounded-full bg-sage animate-ping"></span>
+        Advanced Clinical Protocols • Ballupur Chowk, Dehradun
+      </div>
+
+      <h1 class="reveal font-display text-4xl sm:text-6xl md:text-7xl font-bold text-clinicalDark leading-[1.08] tracking-tight mb-8">
+        Precision Dentistry.<br>
+        <span class="font-serif italic font-normal text-sage">Zero-Anxiety Care.</span>
+      </h1>
+
+      <p class="reveal max-w-2xl mx-auto text-slate-600 text-base md:text-lg font-light leading-relaxed mb-12">
+        From advanced digital dental implants and ceramic smile transformations to gentle routine care. Experience hospital-grade sterilization with bespoke comfort in the heart of Dehradun.
+      </p>
+
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4">
+        <button onclick="openModal()" class="w-full sm:w-auto px-8 py-4 bg-sage text-white font-mono text-xs uppercase tracking-widest font-semibold rounded-full hover:bg-teal-800 shadow-md transition-all">
+          Schedule Consultation &rarr;
+        </button>
+        <a href="#treatments" class="w-full sm:w-auto px-8 py-4 border border-slate-300 bg-white text-slate-700 font-mono text-xs uppercase tracking-widest rounded-full hover:border-sage hover:text-sage transition-colors">
+          Explore Treatments
+        </a>
+      </div>
+
+      <!-- Trust Pillars Grid -->
+      <div class="reveal mt-20 pt-10 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+        <div class="p-4 bg-white/70 border border-slate-200/60 rounded-xl">
+          <span class="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-1">Clinical Standard</span>
+          <span class="font-display font-semibold text-clinicalDark text-base">Class-B Autoclave</span>
+          <span class="block text-[11px] text-slate-500 font-light mt-0.5">100% Sterile Protocol</span>
+        </div>
+        <div class="p-4 bg-white/70 border border-slate-200/60 rounded-xl">
+          <span class="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-1">Technology</span>
+          <span class="font-display font-semibold text-clinicalDark text-base">HD Digital RVG</span>
+          <span class="block text-[11px] text-slate-500 font-light mt-0.5">Low Radiation Diagnostics</span>
+        </div>
+        <div class="p-4 bg-white/70 border border-slate-200/60 rounded-xl">
+          <span class="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-1">Patient Comfort</span>
+          <span class="font-display font-semibold text-clinicalDark text-base">Painless Anesthesia</span>
+          <span class="block text-[11px] text-slate-500 font-light mt-0.5">Zero-Fear Dentistry</span>
+        </div>
+        <div class="p-4 bg-white/70 border border-slate-200/60 rounded-xl">
+          <span class="block font-mono text-xs text-slate-400 uppercase tracking-wider mb-1">Location</span>
+          <span class="font-display font-semibold text-clinicalDark text-base">Ballupur Chowk</span>
+          <span class="block text-[11px] text-slate-500 font-light mt-0.5">Opp. Shiv Mandir, Dehradun</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Clinic Philosophy with High-Res Image -->
+  <section id="about" class="py-24 px-6 border-t border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-5 space-y-6 reveal">
+        <span class="font-mono text-xs text-sage uppercase tracking-widest font-semibold">01 / The Clinic Standard</span>
+        <h2 class="font-display text-3xl sm:text-4xl text-clinicalDark font-bold leading-tight">
+          Dental care designed around dignity, calm, and biological precision.
+        </h2>
+        <div class="w-12 h-[2px] bg-sage"></div>
+        <p class="text-slate-600 font-light text-sm leading-relaxed">
+          At Dangwal Dental Clinic, we believe dental health is inseparable from overall well-being. We have intentionally eliminated the cold, rushed atmosphere typical of traditional clinics.
+        </p>
+        <p class="text-slate-600 font-light text-sm leading-relaxed">
+          Every consultation begins with a dedicated diagnostic discussion. Whether you are seeking a restorative solution or cosmetic enhancement, we formulate clear, transparent treatment pathways with no hidden surprises.
+        </p>
+
+        <div class="pt-2 flex items-center gap-4">
+          <div class="w-12 h-12 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center font-serif italic text-sage text-xl font-bold">
+            DD
+          </div>
+          <div>
+            <span class="block font-display font-bold text-slate-800 text-sm">Dr. Devina Dangwal</span>
+            <span class="block font-mono text-[11px] text-slate-500 uppercase">Principal Dental Surgeon • Dehradun</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- High Quality Editorial Visual Card -->
+      <div class="lg:col-span-7 reveal reveal-delay-2">
+        <div class="relative rounded-2xl overflow-hidden border border-slate-200 shadow-xl img-zoom-container bg-white">
+          <img 
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" 
+            alt="Pristine Modern Dental Clinic" 
+            class="w-full h-[400px] object-cover img-zoom"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-clinicalDark/70 via-transparent to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-md border border-slate-200/80 rounded-xl">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-mono text-[10px] text-sage font-bold uppercase tracking-wider block">Clinical Safety</span>
+                <span class="font-display font-bold text-slate-900 text-base">Sterile Surgical Treatment Suites</span>
+              </div>
+              <span class="font-mono text-xs text-slate-500">BALLUPUR CHOWK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Treatment Portfolio (With Images & Scroll Animation) -->
+  <section id="treatments" class="py-24 px-6 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+        <div>
+          <span class="font-mono text-xs text-sage uppercase tracking-widest font-semibold block mb-2">02 / Clinical Disciplines</span>
+          <h2 class="font-display text-3xl sm:text-5xl text-clinicalDark font-bold">Treatment Specializations</h2>
+        </div>
+        <p class="text-slate-500 text-xs font-mono max-w-md uppercase tracking-wider">
+          Modern restorative, cosmetic, and surgical solutions tailored to long-term dental health.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Treatment 1 -->
+        <div class="bg-white border border-slate-200 hover:border-sage rounded-2xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl reveal reveal-delay-1 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" alt="Ceramic Veneers" class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-xs font-mono text-sage font-bold rounded shadow-sm">
+              01 / AESTHETICS
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-slate-900 mb-2 group-hover:text-sage transition-colors">Ceramic Veneers & Smile Makeovers</h3>
+            <p class="text-slate-600 text-xs font-light leading-relaxed mb-6">
+              Custom-crafted ultra-thin porcelain veneers to correct discoloration, gaps, and chipped enamel with natural light translucency.
+            </p>
+            <span class="text-xs font-mono text-sage font-semibold uppercase tracking-wider">Natural Translucency &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Treatment 2 -->
+        <div class="bg-white border border-slate-200 hover:border-sage rounded-2xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl reveal reveal-delay-2 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80" alt="Dental Implants" class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-xs font-mono text-sage font-bold rounded shadow-sm">
+              02 / IMPLANTOLOGY
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-slate-900 mb-2 group-hover:text-sage transition-colors">Advanced Guided Dental Implants</h3>
+            <p class="text-slate-600 text-xs font-light leading-relaxed mb-6">
+              Permanent titanium and zirconia tooth replacements using 3D surgical guides for lifelong stability, chewing strength, and natural appearance.
+            </p>
+            <span class="text-xs font-mono text-sage font-semibold uppercase tracking-wider">Lifelong Stability &rarr;</span>
+          </div>
+        </div>
+
+        <!-- Treatment 3 -->
+        <div class="bg-white border border-slate-200 hover:border-sage rounded-2xl overflow-hidden transition-all duration-300 shadow-sm hover:shadow-xl reveal reveal-delay-3 flex flex-col justify-between group">
+          <div class="img-zoom-container h-44 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Root Canal Therapy" class="w-full h-full object-cover img-zoom">
+            <div class="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-md text-xs font-mono text-sage font-bold rounded shadow-sm">
+              03 / ENDODONTICS
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-display text-xl font-bold text-slate-900 mb-2 group-hover:text-sage transition-colors">Single-Visit Painless Root Canal</h3>
+            <p class="text-slate-600 text-xs font-light leading-relaxed mb-6">
+              Pain-free preservation of natural teeth using digital apex locators, rotary endodontics, and biocompatible hermetic sealing.
+            </p>
+            <span class="text-xs font-mono text-sage font-semibold uppercase tracking-wider">Pain-Free Relief &rarr;</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Location & Clinic Info -->
+  <section id="contact" class="py-20 px-6 border-t border-slate-200 bg-white">
+    <div class="max-w-5xl mx-auto text-center reveal">
+      <span class="font-mono text-xs text-sage uppercase tracking-widest font-semibold block mb-3">Visit the Clinic</span>
+      <h2 class="font-display text-4xl sm:text-5xl text-clinicalDark font-bold mb-6">Conveniently Located at Ballupur Chowk</h2>
+      <p class="text-slate-600 text-sm font-light max-w-xl mx-auto mb-10 leading-relaxed">
+        Accessible location with dedicated ground-level patient parking and wheelchair-friendly entrance.
+      </p>
+
+      <div class="p-8 border border-slate-200 bg-clinicalWhite rounded-2xl grid grid-cols-1 md:grid-cols-3 gap-6 text-left shadow-lg">
+        <div>
+          <span class="font-mono text-xs text-slate-400 uppercase tracking-wider block mb-1">Clinic Address</span>
+          <p class="font-semibold text-slate-800 text-sm">Ballupur Chowk, Opp. Shiv Mandir</p>
+          <p class="text-slate-500 text-xs">Dehradun, Uttarakhand - 248001</p>
+        </div>
+
+        <div>
+          <span class="font-mono text-xs text-slate-400 uppercase tracking-wider block mb-1">Consultation Hours</span>
+          <p class="font-semibold text-slate-800 text-sm">Monday to Saturday</p>
+          <p class="text-slate-500 text-xs">Morning: 10:00 AM – 1:30 PM<br>Evening: 4:30 PM – 7:30 PM</p>
+        </div>
+
+        <div class="flex flex-col justify-center">
+          <button onclick="openModal()" class="w-full py-3 bg-sage text-white font-mono text-xs uppercase tracking-wider font-semibold rounded-xl hover:bg-teal-800 transition-colors shadow">
+            Book Appointment Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Appointment Modal -->
+  <div id="modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white border border-slate-200 max-w-md w-full p-8 rounded-2xl relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-slate-700 font-mono text-sm">
+        ✕
+      </button>
+
+      <div class="mb-6">
+        <span class="font-mono text-[10px] text-sage font-bold uppercase tracking-widest block">Direct Patient Desk</span>
+        <h3 class="font-display text-2xl font-bold text-clinicalDark">Book Your Dental Visit</h3>
+      </div>
+
+      <form id="dentForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block font-mono text-[10px] text-slate-500 uppercase tracking-wider mb-1">Patient Full Name</label>
+          <input type="text" required placeholder="e.g. Ananya Sharma" class="w-full bg-slate-50 border border-slate-200 px-4 py-2.5 text-xs text-slate-800 rounded-lg focus:outline-none focus:border-sage">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block font-mono text-[10px] text-slate-500 uppercase tracking-wider mb-1">Mobile Number</label>
+            <input type="tel" required placeholder="+91 98XXX XXXXX" class="w-full bg-slate-50 border border-slate-200 px-4 py-2.5 text-xs text-slate-800 rounded-lg focus:outline-none focus:border-sage">
+          </div>
+          <div>
+            <label class="block font-mono text-[10px] text-slate-500 uppercase tracking-wider mb-1">Preferred Slot</label>
+            <select class="w-full bg-slate-50 border border-slate-200 px-3 py-2.5 text-xs text-slate-800 rounded-lg focus:outline-none focus:border-sage">
+              <option>Morning Slot</option>
+              <option>Evening Slot</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-mono text-[10px] text-slate-500 uppercase tracking-wider mb-1">Reason for Visit</label>
+          <select class="w-full bg-slate-50 border border-slate-200 px-4 py-2.5 text-xs text-slate-800 rounded-lg focus:outline-none focus:border-sage">
+            <option>General Checkup & Teeth Cleaning</option>
+            <option>Toothache / Painful Tooth</option>
+            <option>Dental Implant Consultation</option>
+            <option>Cosmetic Smile Veneers</option>
+            <option>Braces / Clear Aligners</option>
+            <option>Root Canal Treatment</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 bg-sage text-white font-mono text-xs uppercase tracking-widest font-semibold rounded-xl hover:bg-teal-800 transition-colors">
+          Confirm Appointment Request
+        </button>
+      </form>
+
+      <!-- Confirmation Toast -->
+      <div id="formSuccess" class="hidden text-center py-8 space-y-4">
+        <div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl font-bold">
+          ✓
+        </div>
+        <h4 class="font-display font-bold text-xl text-slate-900">Appointment Request Received</h4>
+        <p class="text-slate-500 text-xs max-w-xs mx-auto">
+          Thank you! Our front desk at Dangwal Dental Clinic will contact you via WhatsApp/call within 2 hours to confirm your appointment timing.
+        </p>
+        <button onclick="closeModal()" class="px-6 py-2 border border-slate-200 text-xs font-mono uppercase text-slate-700 rounded-lg hover:border-sage">
+          Close Window
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 py-10 px-6 bg-white text-xs font-mono text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div>
+        <span class="text-slate-900 font-display font-bold text-sm block">DANGWAL DENTAL CLINIC</span>
+        <p class="text-[11px] text-slate-500">Ballupur Chowk, Dehradun, Uttarakhand • Dr. Devina Dangwal</p>
+      </div>
+      <div class="text-right text-[11px] text-slate-500">
+        &copy; 2026 Dangwal Dental Clinic.<br>
+        Bespoke Web Experience by <span class="text-slate-800 font-semibold">Jan Hawk Studio</span>.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll Reveal Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function openModal() {
+      document.getElementById('modal').classList.remove('hidden');
+      document.getElementById('dentForm').classList.remove('hidden');
+      document.getElementById('formSuccess').classList.add('hidden');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById('dentForm').classList.add('hidden');
+      document.getElementById('formSuccess').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
