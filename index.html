@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jan Hawk Studio | Bespoke Digital Architecture & Awwwards-Caliber Web Engineering</title>
+  <title>Jan Hawk Studio | Strategic Web Architecture & Editorial Design Consultancy</title>
   
-  <!-- Google Fonts -->
+  <!-- Modern Editorial & Swiss Typefaces -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -18,20 +18,18 @@
       theme: {
         extend: {
           colors: {
-            obsidian: '#07090D',
-            chambers: '#0E121A',
-            cardbg: '#121722',
-            bronze: '#C9A96E',
-            bronzeLight: '#E2CA99',
-            bronzeDark: '#8A7043',
-            mutedGold: 'rgba(201, 169, 110, 0.12)',
-            borderMuted: 'rgba(255, 255, 255, 0.08)',
-            borderBronze: 'rgba(201, 169, 110, 0.35)',
+            canvas: '#0A0C10',
+            panel: '#10141D',
+            surface: '#151B26',
+            borderSubtle: 'rgba(255, 255, 255, 0.08)',
+            borderHighlight: 'rgba(255, 255, 255, 0.2)',
+            accentBronze: '#C9A96E',
+            accentBronzeLight: '#DFCA9B',
+            accentBlue: '#0055FF',
           },
           fontFamily: {
-            serif: ['"Playfair Display"', 'Georgia', 'serif'],
-            editorial: ['"Cormorant Garamond"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           }
         }
@@ -40,205 +38,222 @@
   </script>
 
   <style>
-    .bg-noise {
-      background-image: radial-gradient(rgba(201, 169, 110, 0.035) 1px, transparent 0);
-      background-size: 28px 28px;
+    /* Subtle film grain & grid lines reminiscent of thecontenders.co */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     }
     
-    /* Smooth entrance animations */
+    /* Smooth reveal transitions */
     .reveal {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(24px);
+      transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal.active {
       opacity: 1;
       transform: translateY(0);
     }
-    .reveal-delay-1 { transition-delay: 0.15s; }
-    .reveal-delay-2 { transition-delay: 0.3s; }
-    .reveal-delay-3 { transition-delay: 0.45s; }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
 
-    /* Floating subtle pulse glow */
-    @keyframes ambientGlow {
-      0%, 100% { opacity: 0.35; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.05); }
+    /* Contenders-style line hover animation */
+    .link-hover {
+      position: relative;
     }
-    .glow-pulse {
-      animation: ambientGlow 8s ease-in-out infinite;
+    .link-hover::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .link-hover:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
     }
 
-    /* Image zoom hover effect */
-    .img-zoom-container {
-      overflow: hidden;
-    }
-    .img-zoom {
-      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .img-zoom-container:hover .img-zoom {
-      transform: scale(1.035);
-    }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #07090D; }
-    ::-webkit-scrollbar-thumb { background: #1C2330; border-radius: 3px; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0A0C10; }
+    ::-webkit-scrollbar-thumb { background: #232B3A; border-radius: 2px; }
     ::-webkit-scrollbar-thumb:hover { background: #C9A96E; }
   </style>
 </head>
-<body class="bg-obsidian text-neutral-300 font-sans antialiased selection:bg-bronze selection:text-obsidian bg-noise">
+<body class="bg-canvas text-neutral-300 font-sans antialiased selection:bg-white selection:text-black bg-grid">
 
-  <!-- Top Executive Bar -->
-  <aside aria-label="Studio Dispatch" class="w-full bg-[#040609] py-2.5 px-6 border-b border-white/5 text-[11px] font-mono tracking-wider text-neutral-400 uppercase flex justify-between items-center">
+  <!-- Top Real-Time Status Bar -->
+  <aside class="w-full border-b border-borderSubtle bg-canvas/80 backdrop-blur-sm px-6 py-2.5 text-[11px] font-mono tracking-widest uppercase text-neutral-500 flex justify-between items-center">
     <div class="flex items-center gap-3">
       <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-      <span class="text-neutral-300 font-medium">JAN HAWK STUDIO • BESPOKE DIGITAL ARCHITECTURE</span>
+      <span class="text-neutral-300">JAN HAWK STUDIO • INDEPENDENT DIGITAL ARCHITECTURE</span>
     </div>
-    <div class="hidden sm:flex items-center gap-5 text-neutral-400">
-      <span id="studio-time">DEHRADUN • 10:00 PM IST</span>
+    <div class="hidden md:flex items-center gap-6">
+      <span id="live-time">DEHRADUN • 12:00 PM IST</span>
       <span>•</span>
-      <span class="text-bronze">AWWWARDS BENCHMARK</span>
+      <span class="text-neutral-300">AWWWARDS STANDARD</span>
       <span>•</span>
-      <span class="text-emerald-400">COMMISSIONS OPEN</span>
+      <span class="text-emerald-400">ACCEPTING Q4/Q1 COMMISSIONS</span>
     </div>
   </aside>
 
-  <!-- Main Navigation -->
-  <header class="sticky top-0 z-40 bg-obsidian/90 backdrop-blur-md border-b border-white/10 transition-all">
+  <!-- Navigation (The Contenders-style minimal header) -->
+  <header class="sticky top-0 z-40 bg-canvas/90 backdrop-blur-md border-b border-borderSubtle transition-all">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-3.5 group">
-        <div class="w-10 h-10 border border-bronze/50 flex items-center justify-center font-editorial text-xl text-bronze font-bold group-hover:bg-bronze group-hover:text-obsidian transition-colors">
+      
+      <!-- Brand Wordmark -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-8 h-8 border border-white/20 flex items-center justify-center font-mono text-xs font-bold text-white group-hover:border-accentBronze group-hover:text-accentBronze transition-colors">
           JH
         </div>
         <div>
-          <span class="block font-serif tracking-wide text-neutral-100 text-base font-semibold uppercase group-hover:text-bronze transition-colors">JAN HAWK STUDIO</span>
-          <span class="block text-[10px] tracking-widest text-neutral-400 font-mono uppercase">Architectural Web Engineering</span>
+          <span class="font-sans font-extrabold tracking-tight text-white text-base block group-hover:text-accentBronze transition-colors">JAN HAWK STUDIO</span>
+          <span class="font-mono text-[9px] uppercase tracking-widest text-neutral-500 block">Web Architecture & Consultancy</span>
         </div>
       </a>
 
-      <!-- Desktop Links -->
+      <!-- Navigation Links -->
       <nav class="hidden lg:flex items-center gap-8 text-xs font-mono tracking-widest uppercase text-neutral-400">
-        <a href="#philosophy" class="hover:text-bronze transition-colors">01. Doctrine</a>
-        <a href="#showcase" class="hover:text-bronze transition-colors">02. Selected Works</a>
-        <a href="catalogue.html" class="hover:text-bronze transition-colors">03. 15 Collections</a>
-        <a href="#pricing" class="hover:text-bronze transition-colors">04. Investment</a>
-        <a href="#contact" class="hover:text-bronze transition-colors">05. Commission</a>
+        <a href="#doctrine" class="link-hover hover:text-white transition-colors">01. Doctrine</a>
+        <a href="#capabilities" class="link-hover hover:text-white transition-colors">02. Capabilities</a>
+        <a href="#works" class="link-hover hover:text-white transition-colors">03. Selected Works</a>
+        <a href="catalogue.html" class="link-hover hover:text-white transition-colors">04. 15 Collections</a>
+        <a href="#investment" class="link-hover hover:text-white transition-colors">05. Investment</a>
       </nav>
 
       <!-- Action Button -->
       <div class="flex items-center gap-4">
-        <button onclick="openInquiryModal()" class="px-5 py-2.5 bg-bronze text-obsidian text-xs font-mono uppercase tracking-widest font-bold hover:bg-bronzeLight transition-all shadow-lg shadow-bronze/10">
-          Inquire Brief &rarr;
+        <button onclick="openInquiryModal()" class="px-5 py-2.5 bg-white text-black hover:bg-accentBronze hover:text-black text-xs font-mono uppercase tracking-widest font-bold transition-all">
+          Start a Project &rarr;
         </button>
       </div>
+
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative min-h-[92vh] flex items-center justify-center px-6 pt-16 pb-24 overflow-hidden">
-    <!-- Ambient Background Lighting -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-bronze/10 blur-[140px] rounded-full pointer-events-none glow-pulse"></div>
-
-    <div class="max-w-6xl mx-auto w-full relative z-10 text-center">
+  <!-- Hero Section: The Contenders-style Bold Typographic Statement -->
+  <section class="relative min-h-[85vh] flex items-center px-6 pt-16 pb-20 border-b border-borderSubtle overflow-hidden">
+    <div class="max-w-7xl mx-auto w-full">
       
-      <!-- Top Badge -->
-      <div class="reveal inline-flex items-center gap-2.5 px-4 py-1.5 bg-white/[0.03] border border-white/10 rounded-full text-bronze text-xs font-mono tracking-widest uppercase mb-8">
-        <span class="w-1.5 h-1.5 rounded-full bg-bronze animate-pulse"></span>
-        Awwwards Standard • Zero Generic Templates • Sub-Second Speed
+      <!-- Sector Badge -->
+      <div class="reveal mb-8 inline-flex items-center gap-2.5 px-3.5 py-1.5 border border-white/10 rounded-full bg-white/[0.02] text-neutral-400 text-xs font-mono tracking-widest uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-accentBronze"></span>
+        Digital Architecture Consultancy • Zero Generic Templates
       </div>
 
-      <!-- Main Heading -->
-      <h1 class="reveal font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-white leading-[1.08] tracking-tight mb-8">
-        Digital Architecture for<br>
-        <span class="font-editorial italic font-semibold text-bronze">Practices of Distinction</span>.
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="reveal max-w-2xl mx-auto text-neutral-300 text-base sm:text-lg font-light leading-relaxed mb-12">
-        We engineer bespoke web portals for legal chambers, corporate financial advisory firms, clinical healthcare, and luxury brands. Handcrafted code, editorial typography, and high-conversion client intake channels.
-      </p>
-
-      <!-- Action CTA Buttons -->
-      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-        <a href="#showcase" class="w-full sm:w-auto px-8 py-4 bg-bronze text-obsidian font-mono text-xs uppercase tracking-widest font-bold hover:bg-bronzeLight transition-all shadow-xl shadow-bronze/15">
-          Explore Selected Works ↓
-        </a>
-        <a href="catalogue.html" class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-mono text-xs uppercase tracking-widest hover:border-bronze hover:text-bronze transition-colors">
-          Browse 15 Curated Collections &rarr;
-        </a>
+      <!-- Giant Editorial Headline -->
+      <div class="reveal max-w-5xl mb-12">
+        <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white uppercase leading-[0.98]">
+          WHERE DISTINCTION<br>
+          <span class="text-neutral-500 hover:text-accentBronze transition-colors cursor-default">MEETS ARCHITECTURE.</span>
+        </h1>
       </div>
 
-      <!-- Hero Visual: Real Photorealistic Legal Chamber Render -->
-      <div class="reveal relative rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-cardbg img-zoom-container group">
+      <!-- Two-Column Narrative Split (Inspired by The Contenders) -->
+      <div class="reveal grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-8 border-t border-borderSubtle">
+        
+        <div class="lg:col-span-7">
+          <p class="text-lg sm:text-xl text-neutral-300 font-light leading-relaxed">
+            Jan Hawk Studio is an independent web architecture consultancy. We design and build bespoke, high-performance digital portals for legal chambers, corporate advisory firms, clinical healthcare, and high-status practices who refuse to compromise with generic templates.
+          </p>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:justify-end">
+          <a href="#works" class="px-7 py-4 bg-white text-black font-mono text-xs uppercase tracking-widest font-bold hover:bg-accentBronze transition-all">
+            Explore Selected Works ↓
+          </a>
+          <a href="catalogue.html" class="px-7 py-4 border border-white/20 text-white font-mono text-xs uppercase tracking-widest hover:border-white transition-all">
+            View 15 Collections &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Large Visual Showcase Banner -->
+  <section class="py-16 px-6 border-b border-borderSubtle bg-panel/40">
+    <div class="max-w-7xl mx-auto">
+      <div class="reveal rounded-2xl overflow-hidden border border-borderSubtle bg-surface shadow-2xl relative group">
         <img 
           src="assets/hero_mockup_legal.png" 
           alt="Jan Hawk Studio - Chambers of Advocate Ritu Gaur Mockup" 
-          class="w-full h-auto object-cover img-zoom"
+          class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700"
         >
-        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-60"></div>
-        
-        <!-- Floating Live Tag Badge -->
-        <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row items-center justify-between gap-4 p-5 bg-chambers/90 backdrop-blur-md border border-white/10 rounded-xl">
-          <div class="text-left">
-            <span class="font-mono text-[10px] text-bronze uppercase tracking-widest block font-bold">Featured Commission</span>
-            <span class="font-serif text-white text-base sm:text-lg font-medium">Chambers of Advocate Ritu Gaur • High Court & Trial Defense</span>
+        <div class="absolute bottom-6 left-6 right-6 p-6 bg-canvas/90 backdrop-blur-md border border-white/10 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <span class="font-mono text-[10px] text-accentBronze uppercase tracking-widest block font-bold">Featured Commission</span>
+            <span class="font-sans font-bold text-white text-base sm:text-lg">Chambers of Advocate Ritu Gaur • Haridwar & High Court of Uttarakhand</span>
           </div>
-          <a href="advocate-ritu-gaur.html" class="px-5 py-2.5 bg-bronze/15 border border-bronze text-bronze hover:bg-bronze hover:text-obsidian text-xs font-mono uppercase tracking-widest font-bold transition-all shrink-0">
+          <a href="advocate-ritu-gaur.html" class="px-5 py-2.5 bg-accentBronze text-black text-xs font-mono uppercase tracking-widest font-bold hover:bg-accentBronzeLight transition-all shrink-0">
             Launch Live Prototype &rarr;
           </a>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- Architectural Doctrine & Philosophy -->
-  <section id="philosophy" class="py-24 px-6 border-t border-white/10 bg-chambers/50">
+  <!-- Section 01: Doctrine / Manifesto -->
+  <section id="doctrine" class="py-24 px-6 border-b border-borderSubtle">
     <div class="max-w-7xl mx-auto">
       
-      <div class="max-w-3xl mb-16 reveal">
-        <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-2">01 / Architectural Doctrine</span>
-        <h2 class="font-serif text-3xl sm:text-5xl text-white leading-tight">
-          Why high-status practices refuse cookie-cutter templates.
-        </h2>
-        <div class="w-16 h-[1.5px] bg-bronze mt-6"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-20">
+        <div class="lg:col-span-4">
+          <span class="font-mono text-xs text-accentBronze uppercase tracking-widest block mb-2">01 / The Doctrine</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight uppercase">
+            The problem with 99% of websites.
+          </h2>
+        </div>
+        <div class="lg:col-span-8 space-y-6 text-neutral-300 font-light text-base leading-relaxed">
+          <p>
+            In today's commercial landscape, most web design is an assembly line: bloated WordPress themes, cookie-cutter Wix blocks, sluggish page load times, and generic stock imagery that actively degrades trust with high-value clients.
+          </p>
+          <p>
+            If your practice commands premium rates—whether in courtrooms, corporate boardrooms, or private clinics—your digital presence must communicate immediate authority. We build digital architecture from the ground up: semantic, lightweight code loading in under 1 second, rigorous typography, and seamless conversion channels.
+          </p>
+        </div>
       </div>
 
+      <!-- 4 Pillars Comparison -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <!-- Pillar 1 -->
-        <div class="p-8 bg-cardbg border border-white/10 rounded-xl hover:border-bronze/60 transition-all reveal reveal-delay-1 space-y-4">
-          <span class="font-mono text-xs text-bronze block">01 // PERFORMANCE</span>
-          <h3 class="font-serif text-xl text-white">Sub-Second Speed</h3>
-          <p class="text-neutral-400 text-xs font-light leading-relaxed">
-            Zero WordPress plugins, zero heavy themes. Pure custom semantic HTML5, modern Tailwind CSS, and vanilla JavaScript loading in under 1 second worldwide.
+        <div class="p-8 border border-borderSubtle bg-panel/60 rounded-xl space-y-4 hover:border-borderHighlight transition-all reveal reveal-delay-1">
+          <span class="font-mono text-xs text-neutral-500 uppercase block">01 // CODEBASE</span>
+          <h3 class="font-sans font-bold text-lg text-white">Sub-Second Velocity</h3>
+          <p class="text-xs text-neutral-400 font-light leading-relaxed">
+            Zero plugins, zero database lag. Pure custom HTML5, Tailwind CSS, and lightweight scripts optimized for 98+ Google Lighthouse scores.
           </p>
         </div>
 
-        <!-- Pillar 2 -->
-        <div class="p-8 bg-cardbg border border-white/10 rounded-xl hover:border-bronze/60 transition-all reveal reveal-delay-2 space-y-4">
-          <span class="font-mono text-xs text-bronze block">02 // TYPOGRAPHY</span>
-          <h3 class="font-serif text-xl text-white">Editorial Restraint</h3>
-          <p class="text-neutral-400 text-xs font-light leading-relaxed">
-            Inspired by Swiss International grids and classic European editorial design. Hand-paired Playfair, Cormorant Garamond, and Neue Haas typefaces that evoke institutional trust.
+        <div class="p-8 border border-borderSubtle bg-panel/60 rounded-xl space-y-4 hover:border-borderHighlight transition-all reveal reveal-delay-2">
+          <span class="font-mono text-xs text-neutral-500 uppercase block">02 // TYPOGRAPHY</span>
+          <h3 class="font-sans font-bold text-lg text-white">Editorial Discipline</h3>
+          <p class="text-xs text-neutral-400 font-light leading-relaxed">
+            Inspired by Swiss International grids and European editorial broadsheets. Hand-paired Playfair, Cormorant, and Neue Haas typefaces.
           </p>
         </div>
 
-        <!-- Pillar 3 -->
-        <div class="p-8 bg-cardbg border border-white/10 rounded-xl hover:border-bronze/60 transition-all reveal reveal-delay-3 space-y-4">
-          <span class="font-mono text-xs text-bronze block">03 // STATUTORY READY</span>
-          <h3 class="font-serif text-xl text-white">BCI Rule 36 Immunity</h3>
-          <p class="text-neutral-400 text-xs font-light leading-relaxed">
-            For advocates and legal chambers: pre-configured with Bar Council of India non-solicitation disclaimers, ensuring 100% statutory regulatory compliance.
+        <div class="p-8 border border-borderSubtle bg-panel/60 rounded-xl space-y-4 hover:border-borderHighlight transition-all reveal reveal-delay-3">
+          <span class="font-mono text-xs text-neutral-500 uppercase block">03 // STATUTORY READY</span>
+          <h3 class="font-sans font-bold text-lg text-white">BCI Rule 36 Immunity</h3>
+          <p class="text-xs text-neutral-400 font-light leading-relaxed">
+            For advocates and legal chambers: pre-configured with Bar Council of India non-solicitation disclaimers, ensuring 100% regulatory safety.
           </p>
         </div>
 
-        <!-- Pillar 4 -->
-        <div class="p-8 bg-cardbg border border-white/10 rounded-xl hover:border-bronze/60 transition-all reveal space-y-4">
-          <span class="font-mono text-xs text-bronze block">04 // INTAKE ENGINES</span>
-          <h3 class="font-serif text-xl text-white">Direct Client Inflow</h3>
-          <p class="text-neutral-400 text-xs font-light leading-relaxed">
-            Built-in confidential appointment scheduling, interactive calculators, and 1-tap WhatsApp consultation channels without losing high commissions to aggregators.
+        <div class="p-8 border border-borderSubtle bg-panel/60 rounded-xl space-y-4 hover:border-borderHighlight transition-all reveal space-y-4">
+          <span class="font-mono text-xs text-neutral-500 uppercase block">04 // INTAKE</span>
+          <h3 class="font-sans font-bold text-lg text-white">Direct Client Inflow</h3>
+          <p class="text-xs text-neutral-400 font-light leading-relaxed">
+            Built-in confidential case scheduling, interactive fee/subsidy estimators, and 1-tap WhatsApp consultation channels.
           </p>
         </div>
 
@@ -247,41 +262,104 @@
     </div>
   </section>
 
-  <!-- Selected Works Showcase -->
-  <section id="showcase" class="py-28 px-6 border-t border-white/10">
+  <!-- Section 02: Capabilities -->
+  <section id="capabilities" class="py-24 px-6 border-b border-borderSubtle bg-panel/20">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 reveal">
+        <div>
+          <span class="font-mono text-xs text-accentBronze uppercase tracking-widest block mb-2">02 / What We Deliver</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">Our Capabilities</h2>
+        </div>
+        <p class="text-neutral-400 text-xs font-mono max-w-md uppercase tracking-wider">
+          End-to-end turnkey delivery: custom domain registration, cloud SSL hosting, and responsive engineering.
+        </p>
+      </div>
+
+      <div class="border-t border-borderSubtle divide-y divide-borderSubtle">
+        
+        <div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group hover:bg-white/[0.01] transition-colors">
+          <div class="md:col-span-1 font-mono text-xs text-neutral-500">01</div>
+          <div class="md:col-span-4 font-sans font-bold text-xl text-white group-hover:text-accentBronze transition-colors">Legal Chambers & Appellate Portals</div>
+          <div class="md:col-span-5 text-xs text-neutral-400 font-light leading-relaxed">
+            Prestige chamber web architecture, trial jurisdiction dockets, Bar Council of India Rule 36 compliance, and private consultation intake.
+          </div>
+          <div class="md:col-span-2 text-right">
+            <span class="text-[11px] font-mono text-accentBronze uppercase">Legal Sector</span>
+          </div>
+        </div>
+
+        <div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group hover:bg-white/[0.01] transition-colors">
+          <div class="md:col-span-1 font-mono text-xs text-neutral-500">02</div>
+          <div class="md:col-span-4 font-sans font-bold text-xl text-white group-hover:text-accentBronze transition-colors">Corporate Advisory & CA Firms</div>
+          <div class="md:col-span-5 text-xs text-neutral-400 font-light leading-relaxed">
+            Swiss modernist corporate grids, interactive MSME state subsidy calculators, GST/tax advisory dossiers, and board-level credibility.
+          </div>
+          <div class="md:col-span-2 text-right">
+            <span class="text-[11px] font-mono text-blue-400 uppercase">Corporate Sector</span>
+          </div>
+        </div>
+
+        <div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group hover:bg-white/[0.01] transition-colors">
+          <div class="md:col-span-1 font-mono text-xs text-neutral-500">03</div>
+          <div class="md:col-span-4 font-sans font-bold text-xl text-white group-hover:text-accentBronze transition-colors">Clinical Healthcare & Implantology</div>
+          <div class="md:col-span-5 text-xs text-neutral-400 font-light leading-relaxed">
+            Scandinavian minimalist healthcare portals with direct online patient booking, clear clinical hygiene showcases, and zero aggregator cuts.
+          </div>
+          <div class="md:col-span-2 text-right">
+            <span class="text-[11px] font-mono text-teal-400 uppercase">Healthcare</span>
+          </div>
+        </div>
+
+        <div class="py-8 grid grid-cols-1 md:grid-cols-12 gap-6 items-center group hover:bg-white/[0.01] transition-colors">
+          <div class="md:col-span-1 font-mono text-xs text-neutral-500">04</div>
+          <div class="md:col-span-4 font-sans font-bold text-xl text-white group-hover:text-accentBronze transition-colors">Boutique Gastronomy & Hospitality</div>
+          <div class="md:col-span-5 text-xs text-neutral-400 font-light leading-relaxed">
+            French luxury editorial menus, direct table reservation channels, high-res visual seasonal highlights, and artisanal branding.
+          </div>
+          <div class="md:col-span-2 text-right">
+            <span class="text-[11px] font-mono text-amber-400 uppercase">Hospitality</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Section 03: Selected Works (The Contenders-style Editorial Showcase) -->
+  <section id="works" class="py-28 px-6 border-b border-borderSubtle">
     <div class="max-w-7xl mx-auto space-y-24">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
         <div>
-          <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-2">02 / Selected Works</span>
-          <h2 class="font-serif text-3xl sm:text-5xl text-white">Curated Client Frameworks</h2>
+          <span class="font-mono text-xs text-accentBronze uppercase tracking-widest block mb-2">03 / Selected Commissions</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase">Featured Works</h2>
         </div>
         <p class="text-neutral-400 text-xs font-mono max-w-md uppercase tracking-wider">
-          Each portal is custom engineered with bespoke typography, dedicated intake channels, and industry-specific interactive modules.
+          Explore our live, functional staging prototypes deployed across Uttarakhand and regional courts.
         </p>
       </div>
 
       <!-- Project 01: Legal Chamber -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal">
-        <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-white/15 bg-cardbg img-zoom-container shadow-2xl">
-          <img src="assets/hero_mockup_legal.png" alt="Legal Chamber Preview" class="w-full h-auto object-cover img-zoom">
+        <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-borderSubtle bg-surface shadow-2xl group">
+          <img src="assets/hero_mockup_legal.png" alt="Legal Chamber Preview" class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700">
         </div>
         <div class="lg:col-span-5 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-bronze/10 border border-bronze/40 rounded text-bronze text-[11px] font-mono uppercase font-bold">
-            01 / LEGAL & COUNSEL
-          </div>
-          <h3 class="font-serif text-3xl sm:text-4xl text-white">Chambers of Advocate Ritu Gaur</h3>
+          <span class="text-accentBronze text-xs font-mono uppercase tracking-widest block font-bold">Case 01 // High Court Practice</span>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">Chambers of Advocate Ritu Gaur</h3>
           <p class="text-neutral-300 text-sm font-light leading-relaxed">
-            A solemn, high-status chamber portal engineered for trial advocates and High Court counsel. Features an obsidian and burnished gold palette, Bar Council statutory disclaimer, structured multi-court dockets, and confidential consultation intake.
+            A bespoke appellate chamber portal engineered for trial advocates and High Court counsel. Features an obsidian and burnished gold palette, Bar Council statutory notice, structured multi-court dockets, and confidential case intake.
           </p>
-          <div class="space-y-2 text-xs font-mono text-neutral-400 border-l-2 border-bronze pl-4">
-            <div>• Bar Council Rule 36 Statutory Notice Bar</div>
-            <div>• Civil, Criminal, Family & High Court Writs Showcase</div>
-            <div>• Working Interactive Case Brief Transmission Modal</div>
+          <div class="space-y-1.5 text-xs font-mono text-neutral-400 border-l border-accentBronze pl-4">
+            <div>• Bar Council Rule 36 Statutory Immunity</div>
+            <div>• Civil, Criminal, Family & Writs Showcase</div>
+            <div>• Direct Confidential Conference Modal</div>
           </div>
-          <div class="pt-4 flex items-center gap-4">
-            <a href="advocate-ritu-gaur.html" class="px-6 py-3.5 bg-bronze text-obsidian text-xs font-mono uppercase tracking-widest font-bold hover:bg-bronzeLight transition-all">
-              Launch Live Prototype &rarr;
+          <div class="pt-2">
+            <a href="advocate-ritu-gaur.html" class="px-6 py-3.5 bg-accentBronze text-black text-xs font-mono uppercase tracking-widest font-bold hover:bg-accentBronzeLight transition-all inline-block">
+              Launch Live Portal &rarr;
             </a>
           </div>
         </div>
@@ -290,56 +368,52 @@
       <!-- Project 02: Multi-Device Corporate & Healthcare Suite -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal">
         <div class="lg:col-span-5 space-y-6 lg:order-1 order-2">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/40 rounded text-blue-400 text-[11px] font-mono uppercase font-bold">
-            02 / CORPORATE ADVISORY & HEALTHCARE
-          </div>
-          <h3 class="font-serif text-3xl sm:text-4xl text-white">Verma CA & Dangwal Dental Suite</h3>
+          <span class="text-blue-400 text-xs font-mono uppercase tracking-widest block font-bold">Case 02 // Corporate & Clinical</span>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">Verma CA & Dangwal Dental Suite</h3>
           <p class="text-neutral-300 text-sm font-light leading-relaxed">
-            Multi-device responsive engineering benchmarked against Swiss corporate portals and Scandinavian medical centers. Includes an interactive MSME State Subsidy Calculator and direct patient appointment scheduling.
+            Multi-device responsive engineering benchmarked against Swiss corporate advisory firms and Scandinavian dental centers. Includes an interactive MSME State Subsidy Calculator and direct patient appointment intake.
           </p>
-          <div class="space-y-2 text-xs font-mono text-neutral-400 border-l-2 border-blue-500 pl-4">
-            <div>• Swiss Modernist Grid Layout & Zero Bloat</div>
-            <div>• Interactive Financial Data & Subsidy Tool</div>
-            <div>• Direct Clinic Booking (No Third-Party Cuts)</div>
+          <div class="space-y-1.5 text-xs font-mono text-neutral-400 border-l border-blue-400 pl-4">
+            <div>• Swiss Modernist Grid Layout</div>
+            <div>• Interactive MSME State Subsidy Calculator</div>
+            <div>• Direct Appointment Scheduling Without Cuts</div>
           </div>
-          <div class="pt-4 flex flex-wrap items-center gap-4">
-            <a href="ca-verma/index.html" class="px-6 py-3.5 bg-blue-500 text-white text-xs font-mono uppercase tracking-widest font-bold hover:bg-blue-400 transition-all">
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="ca-verma/index.html" class="px-6 py-3.5 bg-blue-500 text-white text-xs font-mono uppercase tracking-widest font-bold hover:bg-blue-400 transition-all inline-block">
               View CA Portal &rarr;
             </a>
-            <a href="dental-dangwal/index.html" class="px-6 py-3.5 border border-white/20 text-white text-xs font-mono uppercase tracking-widest hover:border-white transition-all">
+            <a href="dental-dangwal/index.html" class="px-6 py-3.5 border border-white/20 text-white text-xs font-mono uppercase tracking-widest hover:border-white transition-all inline-block">
               View Dental Clinic &rarr;
             </a>
           </div>
         </div>
-        <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-white/15 bg-cardbg img-zoom-container shadow-2xl lg:order-2 order-1">
-          <img src="assets/multidevice_showcase.png" alt="Multi-Device Corporate & Dental Mockup" class="w-full h-auto object-cover img-zoom">
+        <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-borderSubtle bg-surface shadow-2xl lg:order-2 order-1 group">
+          <img src="assets/multidevice_showcase.png" alt="Corporate & Dental Showcase" class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700">
         </div>
       </div>
 
-      <!-- Project 03: 15 Design Collections Catalogue -->
+      <!-- Project 03: 15 Design Collections Archive -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal">
-        <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-white/15 bg-cardbg img-zoom-container shadow-2xl">
-          <img src="assets/catalogue_grid.png" alt="15 Curated Design Collections" class="w-full h-auto object-cover img-zoom">
+        <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-borderSubtle bg-surface shadow-2xl group">
+          <img src="assets/catalogue_grid.png" alt="15 Curated Design Collections" class="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700">
         </div>
         <div class="lg:col-span-5 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/40 rounded text-amber-400 text-[11px] font-mono uppercase font-bold">
-            03 / ARCHITECTURAL ARCHIVE
-          </div>
-          <h3 class="font-serif text-3xl sm:text-4xl text-white">15 Curated Design Collections</h3>
+          <span class="text-amber-400 text-xs font-mono uppercase tracking-widest block font-bold">Case 03 // Master Archive</span>
+          <h3 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">15 Curated Design Collections</h3>
           <p class="text-neutral-300 text-sm font-light leading-relaxed">
             Our comprehensive 15-collection design archive spans British Heritage, Oxford Editorial, Swiss Modernism, Brutalist Authority, and Glassmorphism. Clients can choose any master framework and personalize colors, typography, and modules.
           </p>
-          <div class="space-y-2 text-xs font-mono text-neutral-400 border-l-2 border-amber-500 pl-4">
-            <div>• 15 Complete Awwwards-Standard Archetypes</div>
-            <div>• Comprehensive Client Information Intake Form</div>
-            <div>• Downloadable Official Studio Catalogue PDF</div>
+          <div class="space-y-1.5 text-xs font-mono text-neutral-400 border-l border-amber-400 pl-4">
+            <div>• 15 Complete Awwwards-Standard Frameworks</div>
+            <div>• Interactive Web Catalogue & PDF Download</div>
+            <div>• Turnkey Client Information Intake Dossier</div>
           </div>
-          <div class="pt-4 flex flex-wrap items-center gap-4">
-            <a href="catalogue.html" class="px-6 py-3.5 bg-amber-400 text-obsidian text-xs font-mono uppercase tracking-widest font-bold hover:bg-amber-300 transition-all">
-              Explore 15 Collections &rarr;
+          <div class="pt-2 flex flex-wrap gap-4">
+            <a href="catalogue.html" class="px-6 py-3.5 bg-amber-400 text-black text-xs font-mono uppercase tracking-widest font-bold hover:bg-amber-300 transition-all inline-block">
+              Browse 15 Collections &rarr;
             </a>
-            <a href="Jan_Hawk_Studio_Design_Catalogue.pdf" download class="px-6 py-3.5 border border-white/20 text-white text-xs font-mono uppercase tracking-widest hover:border-bronze hover:text-bronze transition-all flex items-center gap-2">
-              <span>↓</span> Download PDF
+            <a href="Jan_Hawk_Studio_Design_Catalogue.pdf" download class="px-6 py-3.5 border border-white/20 text-white text-xs font-mono uppercase tracking-widest hover:border-accentBronze hover:text-accentBronze transition-all inline-block">
+              Download PDF Dossier ↓
             </a>
           </div>
         </div>
@@ -348,13 +422,13 @@
     </div>
   </section>
 
-  <!-- Investment / Pricing Tiers -->
-  <section id="pricing" class="py-24 px-6 border-t border-white/10 bg-chambers/30">
+  <!-- Section 04: Turnkey Investment & Packages -->
+  <section id="investment" class="py-24 px-6 border-b border-borderSubtle bg-panel/30">
     <div class="max-w-7xl mx-auto">
       
       <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-        <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-2">03 / Transparent Investment</span>
-        <h2 class="font-serif text-3xl sm:text-5xl text-white mb-4">Turnkey Commission Packages</h2>
+        <span class="font-mono text-xs text-accentBronze uppercase tracking-widest block mb-2">04 / Transparent Investment</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight uppercase mb-4">Turnkey Commission Packages</h2>
         <p class="text-neutral-400 text-xs font-mono uppercase tracking-wider">
           All-inclusive pricing. Custom domain, high-speed SSL cloud hosting, and turnkey setup.
         </p>
@@ -363,15 +437,15 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <!-- Package 1 -->
-        <div class="bg-cardbg border border-white/10 rounded-xl p-8 flex flex-col justify-between hover:border-white/30 transition-all reveal reveal-delay-1">
+        <div class="p-8 border border-borderSubtle bg-surface/50 rounded-xl flex flex-col justify-between hover:border-white/30 transition-all reveal reveal-delay-1">
           <div>
-            <span class="font-mono text-xs text-neutral-400 uppercase tracking-widest block mb-1">Launchpad Tier</span>
-            <h3 class="font-serif text-2xl text-white mb-4">Editorial Launchpad</h3>
-            <div class="text-3xl font-mono text-white font-bold mb-6">$150 <span class="text-xs text-neutral-500 font-normal">/ ₹12,500</span></div>
+            <span class="font-mono text-xs text-neutral-500 uppercase tracking-widest block mb-1">Launchpad Tier</span>
+            <h3 class="font-sans font-bold text-2xl text-white mb-2">Editorial Launchpad</h3>
+            <div class="text-3xl font-mono text-white font-extrabold mb-6">$150 <span class="text-xs text-neutral-500 font-normal">/ ₹12,500</span></div>
             <p class="text-neutral-400 text-xs leading-relaxed mb-6">
               A bespoke full-length landing page designed for rising independent practitioners needing instant authority.
             </p>
-            <ul class="space-y-3 text-xs font-mono text-neutral-300 border-t border-white/10 pt-6">
+            <ul class="space-y-3 text-xs font-mono text-neutral-300 border-t border-borderSubtle pt-6">
               <li>✓ 1 Bespoke Landing Page</li>
               <li>✓ Handcrafted Swiss Typography</li>
               <li>✓ Contact & Inquiry Intake Form</li>
@@ -379,24 +453,24 @@
               <li>✓ Sub-second Load Speeds</li>
             </ul>
           </div>
-          <button onclick="openInquiryModal('Editorial Launchpad ($150)')" class="w-full mt-8 py-3.5 bg-white/5 border border-white/15 text-white hover:bg-white hover:text-obsidian text-xs font-mono uppercase tracking-widest font-bold transition-all">
+          <button onclick="openInquiryModal('Editorial Launchpad ($150)')" class="w-full mt-8 py-3.5 bg-white/5 border border-white/15 text-white hover:bg-white hover:text-black text-xs font-mono uppercase tracking-widest font-bold transition-all">
             Commission Launchpad
           </button>
         </div>
 
         <!-- Package 2: Most Popular -->
-        <div class="bg-cardbg border border-bronze rounded-xl p-8 flex flex-col justify-between shadow-2xl shadow-bronze/10 ring-1 ring-bronze/30 relative reveal reveal-delay-2">
-          <div class="absolute -top-3.5 right-6 px-3 py-1 bg-bronze text-obsidian text-[10px] font-mono uppercase font-bold tracking-widest rounded">
+        <div class="p-8 border border-accentBronze bg-surface/80 rounded-xl flex flex-col justify-between shadow-2xl shadow-accentBronze/10 ring-1 ring-accentBronze/40 relative reveal reveal-delay-2">
+          <div class="absolute -top-3.5 right-6 px-3 py-1 bg-accentBronze text-black text-[10px] font-mono uppercase font-bold tracking-widest rounded">
             MOST POPULAR
           </div>
           <div>
-            <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-1">Chamber Tier</span>
-            <h3 class="font-serif text-2xl text-white mb-4">Practice & Chamber Prestige</h3>
-            <div class="text-3xl font-mono text-bronze font-bold mb-6">$350 <span class="text-xs text-neutral-400 font-normal">/ ₹29,000</span></div>
+            <span class="font-mono text-xs text-accentBronze uppercase tracking-widest block mb-1">Chamber Tier</span>
+            <h3 class="font-sans font-bold text-2xl text-white mb-2">Practice Prestige</h3>
+            <div class="text-3xl font-mono text-accentBronze font-extrabold mb-6">$350 <span class="text-xs text-neutral-400 font-normal">/ ₹29,000</span></div>
             <p class="text-neutral-300 text-xs leading-relaxed mb-6">
               Our complete multi-page architecture designed for established legal chambers, CA firms, and clinics.
             </p>
-            <ul class="space-y-3 text-xs font-mono text-neutral-200 border-t border-white/10 pt-6">
+            <ul class="space-y-3 text-xs font-mono text-neutral-200 border-t border-borderSubtle pt-6">
               <li>✓ Up to 5 Custom Architectural Pages</li>
               <li>✓ Confidential Booking Intake Engine</li>
               <li>✓ Bar Council Statutory Notice (Legal)</li>
@@ -405,21 +479,21 @@
               <li>✓ Smooth Parallax Micro-Animations</li>
             </ul>
           </div>
-          <button onclick="openInquiryModal('Practice & Chamber Prestige ($350)')" class="w-full mt-8 py-3.5 bg-bronze text-obsidian text-xs font-mono uppercase tracking-widest font-bold hover:bg-bronzeLight transition-all shadow-lg shadow-bronze/10">
+          <button onclick="openInquiryModal('Practice Prestige ($350)')" class="w-full mt-8 py-3.5 bg-accentBronze text-black text-xs font-mono uppercase tracking-widest font-bold hover:bg-accentBronzeLight transition-all">
             Commission Prestige
           </button>
         </div>
 
         <!-- Package 3 -->
-        <div class="bg-cardbg border border-white/10 rounded-xl p-8 flex flex-col justify-between hover:border-white/30 transition-all reveal reveal-delay-3">
+        <div class="p-8 border border-borderSubtle bg-surface/50 rounded-xl flex flex-col justify-between hover:border-white/30 transition-all reveal reveal-delay-3">
           <div>
-            <span class="font-mono text-xs text-neutral-400 uppercase tracking-widest block mb-1">Flagship Tier</span>
-            <h3 class="font-serif text-2xl text-white mb-4">Awwwards Flagship</h3>
-            <div class="text-3xl font-mono text-white font-bold mb-6">$650 <span class="text-xs text-neutral-500 font-normal">/ ₹54,000</span></div>
+            <span class="font-mono text-xs text-neutral-500 uppercase tracking-widest block mb-1">Flagship Tier</span>
+            <h3 class="font-sans font-bold text-2xl text-white mb-2">Awwwards Flagship</h3>
+            <div class="text-3xl font-mono text-white font-extrabold mb-6">$650 <span class="text-xs text-neutral-500 font-normal">/ ₹54,000</span></div>
             <p class="text-neutral-400 text-xs leading-relaxed mb-6">
               Full enterprise architectural portal with custom interactive calculators, multi-jurisdiction showcases, and priority support.
             </p>
-            <ul class="space-y-3 text-xs font-mono text-neutral-300 border-t border-white/10 pt-6">
+            <ul class="space-y-3 text-xs font-mono text-neutral-300 border-t border-borderSubtle pt-6">
               <li>✓ Up to 8 Bespoke Pages</li>
               <li>✓ Interactive MSME / Tax Calculators</li>
               <li>✓ Bespoke Editorial Photography Curation</li>
@@ -427,7 +501,7 @@
               <li>✓ Priority 30-Day Launch Support</li>
             </ul>
           </div>
-          <button onclick="openInquiryModal('Awwwards Flagship ($650)')" class="w-full mt-8 py-3.5 bg-white/5 border border-white/15 text-white hover:bg-white hover:text-obsidian text-xs font-mono uppercase tracking-widest font-bold transition-all">
+          <button onclick="openInquiryModal('Awwwards Flagship ($650)')" class="w-full mt-8 py-3.5 bg-white/5 border border-white/15 text-white hover:bg-white hover:text-black text-xs font-mono uppercase tracking-widest font-bold transition-all">
             Commission Flagship
           </button>
         </div>
@@ -437,35 +511,35 @@
     </div>
   </section>
 
-  <!-- Contact & Brief Intake Section -->
-  <section id="contact" class="py-24 px-6 border-t border-white/10 bg-gradient-to-b from-obsidian to-chambers">
+  <!-- Section 05: Commission / Project Intake -->
+  <section id="contact" class="py-24 px-6 border-b border-borderSubtle bg-canvas">
     <div class="max-w-4xl mx-auto text-center reveal">
-      <span class="font-mono text-xs text-bronze uppercase tracking-widest block mb-3">04 / Direct Engagement</span>
-      <h2 class="font-serif text-4xl sm:text-5xl text-white mb-6">Commission Your Digital Architecture</h2>
+      <span class="font-mono text-xs text-accentBronze uppercase tracking-widest block mb-3">05 / Direct Engagement</span>
+      <h2 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight uppercase mb-6">Start a Project</h2>
       <p class="text-neutral-400 text-sm font-light max-w-xl mx-auto mb-10 leading-relaxed">
         We limit concurrent commissions to maintain uncompromised craft and sub-second performance. Transmit your project details below or connect directly.
       </p>
 
-      <div class="p-8 border border-white/15 bg-cardbg rounded-2xl max-w-2xl mx-auto text-left shadow-2xl space-y-6">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pb-6 border-b border-white/10">
+      <div class="p-8 border border-borderSubtle bg-panel rounded-2xl max-w-2xl mx-auto text-left shadow-2xl space-y-6">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pb-6 border-b border-borderSubtle">
           <div>
-            <span class="font-mono text-[10px] text-bronze uppercase tracking-wider block">Official Studio Registry</span>
-            <p class="text-white text-base font-semibold">Jan Hawk Studio</p>
+            <span class="font-mono text-[10px] text-accentBronze uppercase tracking-wider block">Official Studio Registry</span>
+            <p class="text-white text-lg font-bold">Jan Hawk Studio</p>
             <p class="text-neutral-400 text-xs font-mono mt-0.5">Corporate & Legal Digital Architecture</p>
           </div>
-          <button onclick="openInquiryModal()" class="w-full sm:w-auto px-6 py-3.5 bg-bronze text-obsidian text-xs font-mono uppercase tracking-widest font-bold hover:bg-bronzeLight transition-colors shrink-0">
+          <button onclick="openInquiryModal()" class="w-full sm:w-auto px-6 py-3.5 bg-accentBronze text-black text-xs font-mono uppercase tracking-widest font-bold hover:bg-accentBronzeLight transition-colors shrink-0">
             Transmit Brief &rarr;
           </button>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
-          <div class="p-4 bg-obsidian border border-white/5 rounded-lg">
-            <span class="text-neutral-500 uppercase block mb-1">Direct Email</span>
-            <a href="mailto:janhawk1020@gmail.com" class="text-neutral-200 hover:text-bronze">janhawk1020@gmail.com</a>
+          <div class="p-4 bg-canvas border border-white/5 rounded-lg">
+            <span class="text-neutral-500 uppercase block mb-1">Direct Consultation</span>
+            <a href="https://www.fiverr.com/janhawkstudio" target="_blank" class="text-neutral-200 hover:text-accentBronze">commissions@janhawk.studio</a>
           </div>
-          <div class="p-4 bg-obsidian border border-white/5 rounded-lg">
+          <div class="p-4 bg-canvas border border-white/5 rounded-lg">
             <span class="text-neutral-500 uppercase block mb-1">Fiverr Verified</span>
-            <a href="https://www.fiverr.com/janhawkstudio" target="_blank" class="text-neutral-200 hover:text-bronze">fiverr.com/janhawkstudio &rarr;</a>
+            <a href="https://www.fiverr.com/janhawkstudio" target="_blank" class="text-neutral-200 hover:text-accentBronze">fiverr.com/janhawkstudio &rarr;</a>
           </div>
         </div>
       </div>
@@ -474,36 +548,36 @@
 
   <!-- Inquiry Modal -->
   <div id="modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
-    <div class="bg-cardbg border border-bronze/50 max-w-lg w-full p-8 rounded-2xl relative shadow-2xl">
+    <div class="bg-panel border border-borderHighlight max-w-lg w-full p-8 rounded-2xl relative shadow-2xl">
       <button onclick="closeInquiryModal()" class="absolute top-6 right-6 text-neutral-400 hover:text-white font-mono text-lg font-bold">
         ✕
       </button>
 
       <div class="mb-6">
-        <span class="font-mono text-[10px] text-bronze uppercase tracking-widest block">Confidential Commission Brief</span>
-        <h3 class="font-serif text-2xl text-white">Project Inquiry Form</h3>
+        <span class="font-mono text-[10px] text-accentBronze uppercase tracking-widest block font-bold">Confidential Commission Brief</span>
+        <h3 class="font-sans font-bold text-2xl text-white mt-1">Project Inquiry Form</h3>
       </div>
 
       <form id="inquiryForm" onsubmit="handleInquirySubmit(event)" class="space-y-4">
         <div>
           <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Your Name / Title *</label>
-          <input type="text" required placeholder="e.g. Advocate Ritu Gaur / Director Verma" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+          <input type="text" required placeholder="e.g. Advocate Ritu Gaur / Director Verma" class="w-full bg-canvas border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-accentBronze focus:outline-none">
         </div>
 
         <div class="grid grid-cols-2 gap-4">
           <div>
             <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Email Address *</label>
-            <input type="email" required placeholder="name@domain.com" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            <input type="email" required placeholder="name@domain.com" class="w-full bg-canvas border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-accentBronze focus:outline-none">
           </div>
           <div>
             <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Mobile / WhatsApp</label>
-            <input type="tel" placeholder="+91 98XXX XXXXX" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+            <input type="tel" placeholder="+91 98XXX XXXXX" class="w-full bg-canvas border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-accentBronze focus:outline-none">
           </div>
         </div>
 
         <div>
           <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Sector / Practice Type</label>
-          <select id="packageSelect" class="w-full bg-obsidian border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-bronze focus:outline-none">
+          <select id="packageSelect" class="w-full bg-canvas border border-white/15 px-4 py-2.5 text-xs text-white rounded focus:border-accentBronze focus:outline-none">
             <option>Legal Chamber (Appellate / High Court / Trial Defense)</option>
             <option>Chartered Accountancy & Tax Advisory</option>
             <option>Clinical Healthcare & Dental Implantology</option>
@@ -514,24 +588,24 @@
 
         <div>
           <label class="block font-mono text-[10px] text-neutral-400 uppercase tracking-wider mb-1">Project Scope & Preferred Design</label>
-          <textarea rows="3" placeholder="Describe your required pages, preferred design number (01 to 15), or timeline..." class="w-full bg-obsidian border border-white/15 px-4 py-2 text-xs text-white rounded focus:border-bronze focus:outline-none"></textarea>
+          <textarea rows="3" placeholder="Describe your required pages, preferred design number (01 to 15), or launch timeline..." class="w-full bg-canvas border border-white/15 px-4 py-2 text-xs text-white rounded focus:border-accentBronze focus:outline-none"></textarea>
         </div>
 
-        <button type="submit" class="w-full py-3.5 bg-bronze text-obsidian font-mono text-xs uppercase tracking-widest font-bold hover:bg-bronzeLight transition-colors shadow-lg shadow-bronze/10">
+        <button type="submit" class="w-full py-3.5 bg-accentBronze text-black font-mono text-xs uppercase tracking-widest font-bold hover:bg-accentBronzeLight transition-colors">
           Transmit Project Brief &rarr;
         </button>
       </form>
 
       <!-- Confirmation Toast -->
       <div id="inquirySuccess" class="hidden text-center py-8 space-y-4">
-        <div class="w-12 h-12 mx-auto rounded-full bg-bronze/20 border border-bronze flex items-center justify-center text-bronze text-xl font-bold">
+        <div class="w-12 h-12 mx-auto rounded-full bg-accentBronze/20 border border-accentBronze flex items-center justify-center text-accentBronze text-xl font-bold">
           ✓
         </div>
-        <h4 class="font-serif text-xl text-white">Commission Brief Received</h4>
+        <h4 class="font-sans font-bold text-xl text-white">Commission Brief Received</h4>
         <p class="text-neutral-400 text-xs max-w-xs mx-auto">
-          Your project specifications have been registered. The principal designer will review your brief and respond with staging coordinates within 24 hours.
+          Your project specifications have been logged. The principal designer will review your brief and respond with staging coordinates within 24 hours.
         </p>
-        <button onclick="closeInquiryModal()" class="px-6 py-2 border border-white/20 text-xs font-mono uppercase text-white hover:border-bronze rounded">
+        <button onclick="closeInquiryModal()" class="px-6 py-2 border border-white/20 text-xs font-mono uppercase text-white hover:border-white rounded">
           Close Window
         </button>
       </div>
@@ -539,34 +613,43 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/10 py-12 px-6 bg-[#030508] text-xs font-mono text-neutral-500">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-      <div>
-        <span class="text-neutral-200 font-serif font-bold text-sm block">JAN HAWK STUDIO</span>
-        <p class="text-[11px] text-neutral-400">Corporate & Legal Web Architecture • Dehradun & Uttarakhand</p>
-        <p class="text-[11px] text-bronze mt-1">Registry: janhawk1020@gmail.com</p>
+  <!-- Footer (The Contenders-style massive architectural footer) -->
+  <footer class="py-16 px-6 bg-[#060709] text-xs font-mono text-neutral-500">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+      
+      <div class="space-y-4">
+        <div class="w-10 h-10 border border-white/20 flex items-center justify-center font-mono text-sm font-bold text-white">
+          JH
+        </div>
+        <h3 class="text-2xl font-extrabold text-white uppercase tracking-tight">JAN HAWK STUDIO</h3>
+        <p class="text-xs text-neutral-400 max-w-sm leading-relaxed">
+          Independent digital architecture consultancy. High-performance web portals engineered for legal counsel, corporate advisory, and distinguished commercial enterprises.
+        </p>
       </div>
-      <div class="text-right text-[11px] text-neutral-500">
-        &copy; 2026 Jan Hawk Studio. All Rights Reserved.<br>
-        Awwwards Standard Bespoke Web Engineering.
+
+      <div class="space-y-2 text-left md:text-right text-[11px]">
+        <div>DEHRADUN • UTTARAKHAND • GLOBAL COMMISSIONS</div>
+        <div class="text-neutral-300">REGISTRY: <a href="https://www.fiverr.com/janhawkstudio" target="_blank" class="hover:text-accentBronze">commissions@janhawk.studio</a></div>
+        <div>FIVERR VERIFIED: <a href="https://www.fiverr.com/janhawkstudio" target="_blank" class="hover:text-accentBronze">fiverr.com/janhawkstudio</a></div>
+        <div class="pt-4 text-neutral-600">&copy; 2026 JAN HAWK STUDIO. ALL RIGHTS RESERVED.</div>
       </div>
+
     </div>
   </footer>
 
   <script>
-    // Live IST Studio Clock
-    function updateStudioTime() {
+    // Live Studio Time
+    function updateLiveTime() {
       const now = new Date();
       const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: true };
       const timeStr = now.toLocaleTimeString('en-US', options);
-      const el = document.getElementById('studio-time');
+      const el = document.getElementById('live-time');
       if (el) el.innerText = `DEHRADUN • ${timeStr} IST`;
     }
-    setInterval(updateStudioTime, 1000);
-    updateStudioTime();
+    setInterval(updateLiveTime, 1000);
+    updateLiveTime();
 
-    // Scroll Reveal Observer
+    // Scroll Reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -576,7 +659,7 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Modal Handlers
+    // Modal
     function openInquiryModal(packageName) {
       document.getElementById('modal').classList.remove('hidden');
       document.getElementById('inquiryForm').classList.remove('hidden');
